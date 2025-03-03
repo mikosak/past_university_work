@@ -1,0 +1,293 @@
+0,44,1,44
+2,45,3,45
+4,47,5,49
+6,54,7,55
+8,55,9,58
+10,58,11,59
+12,62,13,65
+14,65,15,67
+16,67,17,68
+18,75,19,76
+20,77,21,78
+22,79,23,80
+24,81,25,82
+source
+Line Addr Code Code Source
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; ArraySum: find sum of the elements of an array
+   1 0000           ; ArraySum: find sum of the elements of an array
+   1 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; ArraySum: find sum of the elements of an array</span>
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022</span>
+   3 0000           
+   3 0000           
+   3 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   4 0000           ; The program is given
+   4 0000           ; The program is given
+   4 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; The program is given</span>
+   5 0000           ;   *  a natural number n, assume n >= 0
+   5 0000           ;   *  a natural number n, assume n >= 0
+   5 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   *  a natural number n, assume n >= 0</span>
+   6 0000           ;   *  an n-element array x[0], x[1], ..., x[n-1]
+   6 0000           ;   *  an n-element array x[0], x[1], ..., x[n-1]
+   6 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   *  an n-element array x[0], x[1], ..., x[n-1]</span>
+   7 0000           ;  It calculates
+   7 0000           ;  It calculates
+   7 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;  It calculates</span>
+   8 0000           ;   * sum = the sum x[0] + x[1] + ... + x[n-1]
+   8 0000           ;   * sum = the sum x[0] + x[1] + ... + x[n-1]
+   8 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   * sum = the sum x[0] + x[1] + ... + x[n-1]</span>
+   9 0000           ;     If n=0 the sum should be 0.
+   9 0000           ;     If n=0 the sum should be 0.
+   9 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     If n=0 the sum should be 0.</span>
+  10 0000           
+  10 0000           
+  10 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  11 0000           ;---------------------------------------------------------------------
+  11 0000           ;---------------------------------------------------------------------
+  11 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;---------------------------------------------------------------------</span>
+  12 0000           ; Algorithm in high level pseudocode
+  12 0000           ; Algorithm in high level pseudocode
+  12 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Algorithm in high level pseudocode</span>
+  13 0000           
+  13 0000           
+  13 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  14 0000           ; program ArraySum
+  14 0000           ; program ArraySum
+  14 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; program ArraySum</span>
+  15 0000           ;   sum := 0
+  15 0000           ;   sum := 0
+  15 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   sum := 0</span>
+  16 0000           ;   i := 0
+  16 0000           ;   i := 0
+  16 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   i := 0</span>
+  17 0000           ;   while i &lt; n do
+  17 0000           ;   while i &lt; n do
+  17 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   while i &lt; n do</span>
+  18 0000           ;     sum := sum + x[i]
+  18 0000           ;     sum := sum + x[i]
+  18 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     sum := sum + x[i]</span>
+  19 0000           ;     i := i + 1
+  19 0000           ;     i := i + 1
+  19 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     i := i + 1</span>
+  20 0000           
+  20 0000           
+  20 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  21 0000           ;---------------------------------------------------------------------
+  21 0000           ;---------------------------------------------------------------------
+  21 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;---------------------------------------------------------------------</span>
+  22 0000           ; Algorithm in low level pseudocode
+  22 0000           ; Algorithm in low level pseudocode
+  22 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Algorithm in low level pseudocode</span>
+  23 0000           
+  23 0000           
+  23 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  24 0000           ;    sum := 0
+  24 0000           ;    sum := 0
+  24 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    sum := 0</span>
+  25 0000           ;    i := 0
+  25 0000           ;    i := 0
+  25 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    i := 0</span>
+  26 0000           ; whileloop:
+  26 0000           ; whileloop:
+  26 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; whileloop:</span>
+  27 0000           ;    if i >= n then goto done
+  27 0000           ;    if i >= n then goto done
+  27 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    if i >= n then goto done</span>
+  28 0000           ;    sum := sum + x[i]
+  28 0000           ;    sum := sum + x[i]
+  28 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    sum := sum + x[i]</span>
+  29 0000           ;    i := i + 1
+  29 0000           ;    i := i + 1
+  29 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    i := i + 1</span>
+  30 0000           ;    goto whileloop
+  30 0000           ;    goto whileloop
+  30 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    goto whileloop</span>
+  31 0000           ; done:
+  31 0000           ; done:
+  31 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; done:</span>
+  32 0000           ;    terminate
+  32 0000           ;    terminate
+  32 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;    terminate</span>
+  33 0000           
+  33 0000           
+  33 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  34 0000           ;---------------------------------------------------------------------
+  34 0000           ;---------------------------------------------------------------------
+  34 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;---------------------------------------------------------------------</span>
+  35 0000           ; Assembly language
+  35 0000           ; Assembly language
+  35 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Assembly language</span>
+  36 0000           
+  36 0000           
+  36 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  37 0000           ; Register usage
+  37 0000           ; Register usage
+  37 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Register usage</span>
+  38 0000           ;   R1 = constant 1
+  38 0000           ;   R1 = constant 1
+  38 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R1 = constant 1</span>
+  39 0000           ;   R2 = n
+  39 0000           ;   R2 = n
+  39 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R2 = n</span>
+  40 0000           ;   R3 = i
+  40 0000           ;   R3 = i
+  40 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R3 = i</span>
+  41 0000           ;   R4 = sum
+  41 0000           ;   R4 = sum
+  41 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R4 = sum</span>
+  42 0000           
+  42 0000           
+  42 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  43 0000           ; Initialise R1=1, R2=n=0, R3=i=0, R4=sum=0
+  43 0000           ; Initialise R1=1, R2=n=0, R3=i=0, R4=sum=0
+  43 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Initialise R1=1, R2=n=0, R3=i=0, R4=sum=0</span>
+  44 0000           
+  44 0000           
+  44 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  45 0000 f100 0001        lea    R1,1[R0]       ; R1 = constant 1
+  45 0000 f100 0001        lea    R1,1[R0]       ; R1 = constant 1
+  45 0000 f100 0001 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R1,1[R0]</span><span class='FIELDCOMMENT'>       ; R1 = constant 1</span>
+  46 0002 f201 0012        load   R2,n[R0]       ; R2 = n
+  46 0002 f201 0012        load   R2,n[R0]       ; R2 = n
+  46 0002 f201 0012 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R2,n[R0]</span><span class='FIELDCOMMENT'>       ; R2 = n</span>
+  47 0004           ; sum := 0
+  47 0004           ; sum := 0
+  47 0004           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; sum := 0</span>
+  48 0004 0400             add    R4,R0,R0       ; R4 = sum = 0
+  48 0004 0400             add    R4,R0,R0       ; R4 = sum = 0
+  48 0004 0400      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R4,R0,R0</span><span class='FIELDCOMMENT'>       ; R4 = sum = 0</span>
+  49 0005           ; i := 0
+  49 0005           ; i := 0
+  49 0005           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; i := 0</span>
+  50 0005 0300             add    R3,R0,R0       ; R3 = i = 0
+  50 0005 0300             add    R3,R0,R0       ; R3 = i = 0
+  50 0005 0300      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R3,R0,R0</span><span class='FIELDCOMMENT'>       ; R3 = i = 0</span>
+  51 0006           
+  51 0006           
+  51 0006           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  52 0006           ; Top of loop, determine whether to remain in loop
+  52 0006           ; Top of loop, determine whether to remain in loop
+  52 0006           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Top of loop, determine whether to remain in loop</span>
+  53 0006           whileloop
+  53 0006           whileloop
+  53 0006           <span class='FIELDLABEL'>whileloop</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  54 0006           ; if i >= n then goto done
+  54 0006           ; if i >= n then goto done
+  54 0006           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; if i >= n then goto done</span>
+  55 0006 4032             cmp    R3,R2          ; compare i, n
+  55 0006 4032             cmp    R3,R2          ; compare i, n
+  55 0006 4032      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>cmp</span>    <span class='FIELDOPERAND'>R3,R2</span><span class='FIELDCOMMENT'>          ; compare i, n</span>
+  56 0007 f404 000f        jumpge done[R0]       ; if i>=n then goto done
+  56 0007 f404 000f        jumpge done[R0]       ; if i>=n then goto done
+  56 0007 f404 000f <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jumpge</span> <span class='FIELDOPERAND'>done[R0]</span><span class='FIELDCOMMENT'>       ; if i>=n then goto done</span>
+  57 0009           
+  57 0009           
+  57 0009           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  58 0009           ; sum := sum + x[i]
+  58 0009           ; sum := sum + x[i]
+  58 0009           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; sum := sum + x[i]</span>
+  59 0009 f531 0014        load   R5,x[R3]       ; R5 = x[i]
+  59 0009 f531 0014        load   R5,x[R3]       ; R5 = x[i]
+  59 0009 f531 0014 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R5,x[R3]</span><span class='FIELDCOMMENT'>       ; R5 = x[i]</span>
+  60 000b 0445             add    R4,R4,R5       ; sum := sum + x[i]
+  60 000b 0445             add    R4,R4,R5       ; sum := sum + x[i]
+  60 000b 0445      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R4,R4,R5</span><span class='FIELDCOMMENT'>       ; sum := sum + x[i]</span>
+  61 000c           
+  61 000c           
+  61 000c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  62 000c           ; i := i + 1
+  62 000c           ; i := i + 1
+  62 000c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; i := i + 1</span>
+  63 000c 0331             add    R3,R3,R1       ; i = i + 1
+  63 000c 0331             add    R3,R3,R1       ; i = i + 1
+  63 000c 0331      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R3,R3,R1</span><span class='FIELDCOMMENT'>       ; i = i + 1</span>
+  64 000d           
+  64 000d           
+  64 000d           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  65 000d           ; goto whileloop
+  65 000d           ; goto whileloop
+  65 000d           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; goto whileloop</span>
+  66 000d f003 0006        jump   whileloop[R0]  ; goto whileloop
+  66 000d f003 0006        jump   whileloop[R0]  ; goto whileloop
+  66 000d f003 0006 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jump</span>   <span class='FIELDOPERAND'>whileloop[R0]</span><span class='FIELDCOMMENT'>  ; goto whileloop</span>
+  67 000f           
+  67 000f           
+  67 000f           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  68 000f f402 0013 done   store  R4,sum[R0]     ; sum := R4
+  68 000f f402 0013 done   store  R4,sum[R0]     ; sum := R4
+  68 000f f402 0013 <span class='FIELDLABEL'>done</span>   <span class='FIELDOPERATION'>store</span>  <span class='FIELDOPERAND'>R4,sum[R0]</span><span class='FIELDCOMMENT'>     ; sum := R4</span>
+  69 0011 c000             trap   R0,R0,R0       ; terminate
+  69 0011 c000             trap   R0,R0,R0       ; terminate
+  69 0011 c000      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>trap</span>   <span class='FIELDOPERAND'>R0,R0,R0</span><span class='FIELDCOMMENT'>       ; terminate</span>
+  70 0012           
+  70 0012           
+  70 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  71 0012           ; Data area
+  71 0012           ; Data area
+  71 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Data area</span>
+  72 0012           ; With the following initial values, the expected result
+  72 0012           ; With the following initial values, the expected result
+  72 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; With the following initial values, the expected result</span>
+  73 0012           ;   = 18 + -33 + 21 + -2 + 40 + 25
+  73 0012           ;   = 18 + -33 + 21 + -2 + 40 + 25
+  73 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   = 18 + -33 + 21 + -2 + 40 + 25</span>
+  74 0012           ;   = 69 = hex 0045
+  74 0012           ;   = 69 = hex 0045
+  74 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   = 69 = hex 0045</span>
+  75 0012           
+  75 0012           
+  75 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  76 0012 0006      n        data   6
+  76 0012 0006      n        data   6
+  76 0012 0006      <span class='FIELDLABEL'>n</span>        <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>6</span><span class='FIELDCOMMENT'></span>
+  77 0013 0000      sum      data   0
+  77 0013 0000      sum      data   0
+  77 0013 0000      <span class='FIELDLABEL'>sum</span>      <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  78 0014 0012      x        data  18
+  78 0014 0012      x        data  18
+  78 0014 0012      <span class='FIELDLABEL'>x</span>        <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>18</span><span class='FIELDCOMMENT'></span>
+  79 0015 ffdf               data -33
+  79 0015 ffdf               data -33
+  79 0015 ffdf      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span> <span class='FIELDOPERAND'>-33</span><span class='FIELDCOMMENT'></span>
+  80 0016 0015               data  21
+  80 0016 0015               data  21
+  80 0016 0015      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>21</span><span class='FIELDCOMMENT'></span>
+  81 0017 fffe               data  -2
+  81 0017 fffe               data  -2
+  81 0017 fffe      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>-2</span><span class='FIELDCOMMENT'></span>
+  82 0018 0028               data  40
+  82 0018 0028               data  40
+  82 0018 0028      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>40</span><span class='FIELDCOMMENT'></span>
+  83 0019 0019               data  25
+  83 0019 0019               data  25
+  83 0019 0019      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>25</span><span class='FIELDCOMMENT'></span>
+  84 001a           
+  84 001a           
+  84 001a           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+
+
+
+Symbol table
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Symbol table</span>
+Name        Val Org Mov  Def Used
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+done       000f Loc Rel   68  56
+done       000f Loc Rel   68  56
+done       000f Loc Rel   68  56
+n          0012 Loc Rel   76  46
+n          0012 Loc Rel   76  46
+n          0012 Loc Rel   76  46
+sum        0013 Loc Rel   77  68
+sum        0013 Loc Rel   77  68
+sum        0013 Loc Rel   77  68
+whileloop  0006 Loc Rel   53  66
+whileloop  0006 Loc Rel   53  66
+whileloop  0006 Loc Rel   53  66
+x          0014 Loc Rel   78  59
+x          0014 Loc Rel   78  59
+x          0014 Loc Rel   78  59

@@ -1,0 +1,177 @@
+0,22,1,22
+2,23,3,23
+4,24,5,24
+6,25,7,25
+8,27,9,28
+10,28,11,29
+12,29,13,30
+14,31,15,31
+16,32,17,33
+18,33,19,35
+20,37,21,38
+22,39,23,40
+24,41,25,42
+26,43
+source
+Line Addr Code Code Source
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; ArrayAddk: add k to each element of an array
+   1 0000           ; ArrayAddk: add k to each element of an array
+   1 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; ArrayAddk: add k to each element of an array</span>
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022</span>
+   3 0000           
+   3 0000           
+   3 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   4 0000           ; Traverse an array and add constant k to each element
+   4 0000           ; Traverse an array and add constant k to each element
+   4 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Traverse an array and add constant k to each element</span>
+   5 0000           
+   5 0000           
+   5 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   6 0000           ; An array x of n elements is defined below, as well as n (size of
+   6 0000           ; An array x of n elements is defined below, as well as n (size of
+   6 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; An array x of n elements is defined below, as well as n (size of</span>
+   7 0000           ; array x) and k (a constant).  The program traverses the array and
+   7 0000           ; array x) and k (a constant).  The program traverses the array and
+   7 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; array x) and k (a constant).  The program traverses the array and</span>
+   8 0000           ; adds k to each element
+   8 0000           ; adds k to each element
+   8 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; adds k to each element</span>
+   9 0000           
+   9 0000           
+   9 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  10 0000           ;   i := 0
+  10 0000           ;   i := 0
+  10 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   i := 0</span>
+  11 0000           ;   while i &lt; n do
+  11 0000           ;   while i &lt; n do
+  11 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   while i &lt; n do</span>
+  12 0000           ;     x[i] := x[i] + k
+  12 0000           ;     x[i] := x[i] + k
+  12 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     x[i] := x[i] + k</span>
+  13 0000           ;     i := i+1
+  13 0000           ;     i := i+1
+  13 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     i := i+1</span>
+  14 0000           
+  14 0000           
+  14 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  15 0000           ; Register usage
+  15 0000           ; Register usage
+  15 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Register usage</span>
+  16 0000           ;   R1 = i  loop counter
+  16 0000           ;   R1 = i  loop counter
+  16 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R1 = i  loop counter</span>
+  17 0000           ;   R2 = 1  constant for incrementing loop counter
+  17 0000           ;   R2 = 1  constant for incrementing loop counter
+  17 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R2 = 1  constant for incrementing loop counter</span>
+  18 0000           ;   R3 = n  size of array
+  18 0000           ;   R3 = n  size of array
+  18 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R3 = n  size of array</span>
+  19 0000           ;   R4 = k  constant to add to elements
+  19 0000           ;   R4 = k  constant to add to elements
+  19 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R4 = k  constant to add to elements</span>
+  20 0000           ;   R5      temporary
+  20 0000           ;   R5      temporary
+  20 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R5      temporary</span>
+  21 0000           
+  21 0000           
+  21 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  22 0000           ; Initialisation
+  22 0000           ; Initialisation
+  22 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Initialisation</span>
+  23 0000 f100 0000       lea    R1,0[R0]     ; i := 0
+  23 0000 f100 0000       lea    R1,0[R0]     ; i := 0
+  23 0000 f100 0000 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R1,0[R0]</span><span class='FIELDCOMMENT'>     ; i := 0</span>
+  24 0002 f200 0001       lea    R2,1[R0]     ; R2 := 1
+  24 0002 f200 0001       lea    R2,1[R0]     ; R2 := 1
+  24 0002 f200 0001 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R2,1[R0]</span><span class='FIELDCOMMENT'>     ; R2 := 1</span>
+  25 0004 f301 0015       load   R3,n[R0]     ; R3 := n
+  25 0004 f301 0015       load   R3,n[R0]     ; R3 := n
+  25 0004 f301 0015 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R3,n[R0]</span><span class='FIELDCOMMENT'>     ; R3 := n</span>
+  26 0006 f401 0014       load   R4,k[R0]     ; R4 := k
+  26 0006 f401 0014       load   R4,k[R0]     ; R4 := k
+  26 0006 f401 0014 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R4,k[R0]</span><span class='FIELDCOMMENT'>     ; R4 := k</span>
+  27 0008           
+  27 0008           
+  27 0008           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  28 0008 4013      loop  cmp    R1,R3        ; compare i with n
+  28 0008 4013      loop  cmp    R1,R3        ; compare i with n
+  28 0008 4013      <span class='FIELDLABEL'>loop</span>  <span class='FIELDOPERATION'>cmp</span>    <span class='FIELDOPERAND'>R1,R3</span><span class='FIELDCOMMENT'>        ; compare i with n</span>
+  29 0009 f404 0013       jumpge done[R0]     ; if not (i &lt; n) then goto done
+  29 0009 f404 0013       jumpge done[R0]     ; if not (i &lt; n) then goto done
+  29 0009 f404 0013 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>jumpge</span> <span class='FIELDOPERAND'>done[R0]</span><span class='FIELDCOMMENT'>     ; if not (i &lt; n) then goto done</span>
+  30 000b f511 0016       load   R5,x[R1]     ; R5 := x[i]
+  30 000b f511 0016       load   R5,x[R1]     ; R5 := x[i]
+  30 000b f511 0016 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R5,x[R1]</span><span class='FIELDCOMMENT'>     ; R5 := x[i]</span>
+  31 000d 0554            add    R5,R5,R4     ; R5 := x[i] + k
+  31 000d 0554            add    R5,R5,R4     ; R5 := x[i] + k
+  31 000d 0554      <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R5,R5,R4</span><span class='FIELDCOMMENT'>     ; R5 := x[i] + k</span>
+  32 000e f512 0016       store  R5,x[R1]     ; x[i] := x[i] + k
+  32 000e f512 0016       store  R5,x[R1]     ; x[i] := x[i] + k
+  32 000e f512 0016 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>store</span>  <span class='FIELDOPERAND'>R5,x[R1]</span><span class='FIELDCOMMENT'>     ; x[i] := x[i] + k</span>
+  33 0010 0112            add    R1,R1,R2     ; i := i + 1
+  33 0010 0112            add    R1,R1,R2     ; i := i + 1
+  33 0010 0112      <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R1,R1,R2</span><span class='FIELDCOMMENT'>     ; i := i + 1</span>
+  34 0011 f003 0008       jump   loop[R0]     ; goto loop
+  34 0011 f003 0008       jump   loop[R0]     ; goto loop
+  34 0011 f003 0008 <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>jump</span>   <span class='FIELDOPERAND'>loop[R0]</span><span class='FIELDCOMMENT'>     ; goto loop</span>
+  35 0013           
+  35 0013           
+  35 0013           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  36 0013 c000      done  trap   R0,R0,R0     ; terminate the program
+  36 0013 c000      done  trap   R0,R0,R0     ; terminate the program
+  36 0013 c000      <span class='FIELDLABEL'>done</span>  <span class='FIELDOPERATION'>trap</span>   <span class='FIELDOPERAND'>R0,R0,R0</span><span class='FIELDCOMMENT'>     ; terminate the program</span>
+  37 0014           
+  37 0014           
+  37 0014           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  38 0014 0007      k     data    7   ; value to add to elements
+  38 0014 0007      k     data    7   ; value to add to elements
+  38 0014 0007      <span class='FIELDLABEL'>k</span>     <span class='FIELDOPERATION'>data</span>    <span class='FIELDOPERAND'>7</span><span class='FIELDCOMMENT'>   ; value to add to elements</span>
+  39 0015 0005      n     data    5   ; size of array x
+  39 0015 0005      n     data    5   ; size of array x
+  39 0015 0005      <span class='FIELDLABEL'>n</span>     <span class='FIELDOPERATION'>data</span>    <span class='FIELDOPERAND'>5</span><span class='FIELDCOMMENT'>   ; size of array x</span>
+  40 0016 0011      x     data   17   ; expected new value =  24 (0018)
+  40 0016 0011      x     data   17   ; expected new value =  24 (0018)
+  40 0016 0011      <span class='FIELDLABEL'>x</span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>17</span><span class='FIELDCOMMENT'>   ; expected new value =  24 (0018)</span>
+  41 0017 0017            data   23   ; expected new value =  30 (001e)
+  41 0017 0017            data   23   ; expected new value =  30 (001e)
+  41 0017 0017      <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>23</span><span class='FIELDCOMMENT'>   ; expected new value =  30 (001e)</span>
+  42 0018 03d5            data  981   ; expected new value = 988 (03dc)
+  42 0018 03d5            data  981   ; expected new value = 988 (03dc)
+  42 0018 03d5      <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>981</span><span class='FIELDCOMMENT'>   ; expected new value = 988 (03dc)</span>
+  43 0019 fff7            data   -9   ; expected new value =  -2 (fffe)
+  43 0019 fff7            data   -9   ; expected new value =  -2 (fffe)
+  43 0019 fff7      <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>-9</span><span class='FIELDCOMMENT'>   ; expected new value =  -2 (fffe)</span>
+  44 001a 004c            data   76   ; expected new value =  83 (0053)
+  44 001a 004c            data   76   ; expected new value =  83 (0053)
+  44 001a 004c      <span class='FIELDLABEL'></span>      <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>76</span><span class='FIELDCOMMENT'>   ; expected new value =  83 (0053)</span>
+  45 001b           
+  45 001b           
+  45 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+
+
+
+Symbol table
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Symbol table</span>
+Name        Val Org Mov  Def Used
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+done       0013 Loc Rel   36  29
+done       0013 Loc Rel   36  29
+done       0013 Loc Rel   36  29
+k          0014 Loc Rel   38  26
+k          0014 Loc Rel   38  26
+k          0014 Loc Rel   38  26
+loop       0008 Loc Rel   28  34
+loop       0008 Loc Rel   28  34
+loop       0008 Loc Rel   28  34
+n          0015 Loc Rel   39  25
+n          0015 Loc Rel   39  25
+n          0015 Loc Rel   39  25
+x          0016 Loc Rel   40  30,32
+x          0016 Loc Rel   40  30,32
+x          0016 Loc Rel   40  30,32

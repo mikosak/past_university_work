@@ -1,0 +1,8 @@
+course: CA
+exercise: 1
+date: 2024-11-10
+author: Miko Osak, 2628565
+
+I completed both of the tasks given. Both of them compile and work correctly. I produced a lot of testing data, especially for controller2, and so I am confident that they function correctly.
+
+In my design, I chose to mimic the behaviour of traffic lights in real life. And so, the walkRequest button will only do something if the car light is green, else it is ignored. Also, even if the walkRequest button is countinously pressed, the green light state for the cars will still eventually be reached and used for one cycle so cars will always get a chance to move.

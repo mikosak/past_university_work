@@ -1,0 +1,576 @@
+0,7,1,7
+2,8,3,8
+4,11,5,11
+6,12,7,12
+8,15,9,15
+10,16,11,16
+12,19,13,19
+14,20,15,20
+16,23,17,23
+18,24,19,24
+20,27,21,27
+22,28,23,28
+24,31,25,31
+26,32,27,32
+28,35,29,35
+30,36,31,36
+32,39,33,45
+34,45,35,46
+36,46,37,47
+38,47,39,48
+40,48,41,49
+42,50,43,50
+44,64,45,64
+46,65,47,65
+48,66,49,66
+50,67,51,68
+52,68,53,69
+54,69,55,75
+56,75,57,76
+58,76,59,77
+60,78,61,78
+62,79,63,79
+64,80,65,80
+66,87,67,88
+68,91,69,92
+70,93,71,94
+72,95,73,98
+74,99,75,100
+source
+Line Addr Code Code Source
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; StackArrayRobust: stack implemented using array
+   1 0000           ; StackArrayRobust: stack implemented using array
+   1 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; StackArrayRobust: stack implemented using array</span>
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022</span>
+   3 0000           
+   3 0000           
+   3 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   4 0000           ;------------------------------------------------------------------------
+   4 0000           ;------------------------------------------------------------------------
+   4 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;------------------------------------------------------------------------</span>
+   5 0000           ; Main program
+   5 0000           ; Main program
+   5 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Main program</span>
+   6 0000           
+   6 0000           
+   6 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   7 0000           ; push 'a'  -- stack = [a]
+   7 0000           ; push 'a'  -- stack = [a]
+   7 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push 'a'  -- stack = [a]</span>
+   8 0000 f101 0044        load   R1,char_a[R0]    ; R1 = character to push
+   8 0000 f101 0044        load   R1,char_a[R0]    ; R1 = character to push
+   8 0000 f101 0044 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R1,char_a[R0]</span><span class='FIELDCOMMENT'>    ; R1 = character to push</span>
+   9 0002 fd06 002c        jal    R13,push[R0]     ; push(R1)
+   9 0002 fd06 002c        jal    R13,push[R0]     ; push(R1)
+   9 0002 fd06 002c <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,push[R0]</span><span class='FIELDCOMMENT'>     ; push(R1)</span>
+  10 0004           
+  10 0004           
+  10 0004           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  11 0004           ; push 'b'  -- stack = [a,b]
+  11 0004           ; push 'b'  -- stack = [a,b]
+  11 0004           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push 'b'  -- stack = [a,b]</span>
+  12 0004 f101 0045        load   R1,char_b[R0]    ; R1 = character to push
+  12 0004 f101 0045        load   R1,char_b[R0]    ; R1 = character to push
+  12 0004 f101 0045 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R1,char_b[R0]</span><span class='FIELDCOMMENT'>    ; R1 = character to push</span>
+  13 0006 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  13 0006 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  13 0006 fd06 002c <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,push[R0]</span><span class='FIELDCOMMENT'>     ; push(R1)</span>
+  14 0008           
+  14 0008           
+  14 0008           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  15 0008           ; push 'c'  -- stack = [a,b,c]
+  15 0008           ; push 'c'  -- stack = [a,b,c]
+  15 0008           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push 'c'  -- stack = [a,b,c]</span>
+  16 0008 f101 0046        load   R1,char_c[R0]    ; R1 = character to push
+  16 0008 f101 0046        load   R1,char_c[R0]    ; R1 = character to push
+  16 0008 f101 0046 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R1,char_c[R0]</span><span class='FIELDCOMMENT'>    ; R1 = character to push</span>
+  17 000a fd06 002c        jal    R13,push[R0]     ; push(R1)
+  17 000a fd06 002c        jal    R13,push[R0]     ; push(R1)
+  17 000a fd06 002c <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,push[R0]</span><span class='FIELDCOMMENT'>     ; push(R1)</span>
+  18 000c           
+  18 000c           
+  18 000c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  19 000c           ; pop and print  -- print c, stack = [a,b]
+  19 000c           ; pop and print  -- print c, stack = [a,b]
+  19 000c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; pop and print  -- print c, stack = [a,b]</span>
+  20 000c fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  20 000c fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  20 000c fd06 0037 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,pop[R0]</span><span class='FIELDCOMMENT'>      ; R1 := pop()</span>
+  21 000e fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  21 000e fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  21 000e fd06 0021 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,printx[R0]</span><span class='FIELDCOMMENT'>   ; print character in R1</span>
+  22 0010           
+  22 0010           
+  22 0010           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  23 0010           ; push 'd'  -- stack = [a,b,d]
+  23 0010           ; push 'd'  -- stack = [a,b,d]
+  23 0010           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push 'd'  -- stack = [a,b,d]</span>
+  24 0010 f101 0047        load   R1,char_d[R0]    ; R1 = character to push
+  24 0010 f101 0047        load   R1,char_d[R0]    ; R1 = character to push
+  24 0010 f101 0047 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R1,char_d[R0]</span><span class='FIELDCOMMENT'>    ; R1 = character to push</span>
+  25 0012 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  25 0012 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  25 0012 fd06 002c <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,push[R0]</span><span class='FIELDCOMMENT'>     ; push(R1)</span>
+  26 0014           
+  26 0014           
+  26 0014           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  27 0014           ; pop and print  -- print d, stack = [a,b]
+  27 0014           ; pop and print  -- print d, stack = [a,b]
+  27 0014           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; pop and print  -- print d, stack = [a,b]</span>
+  28 0014 fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  28 0014 fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  28 0014 fd06 0037 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,pop[R0]</span><span class='FIELDCOMMENT'>      ; R1 := pop()</span>
+  29 0016 fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  29 0016 fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  29 0016 fd06 0021 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,printx[R0]</span><span class='FIELDCOMMENT'>   ; print character in R1</span>
+  30 0018           
+  30 0018           
+  30 0018           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  31 0018           ; pop and print  -- print b, stack = [a]
+  31 0018           ; pop and print  -- print b, stack = [a]
+  31 0018           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; pop and print  -- print b, stack = [a]</span>
+  32 0018 fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  32 0018 fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  32 0018 fd06 0037 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,pop[R0]</span><span class='FIELDCOMMENT'>      ; R1 := pop()</span>
+  33 001a fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  33 001a fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  33 001a fd06 0021 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,printx[R0]</span><span class='FIELDCOMMENT'>   ; print character in R1</span>
+  34 001c           
+  34 001c           
+  34 001c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  35 001c           ; pop and print  -- print a, stack = []
+  35 001c           ; pop and print  -- print a, stack = []
+  35 001c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; pop and print  -- print a, stack = []</span>
+  36 001c fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  36 001c fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  36 001c fd06 0037 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,pop[R0]</span><span class='FIELDCOMMENT'>      ; R1 := pop()</span>
+  37 001e fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  37 001e fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  37 001e fd06 0021 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,printx[R0]</span><span class='FIELDCOMMENT'>   ; print character in R1</span>
+  38 0020           
+  38 0020           
+  38 0020           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  39 0020           ; finish
+  39 0020           ; finish
+  39 0020           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; finish</span>
+  40 0020 c000             trap   R0,R0,R0   ; request terminate
+  40 0020 c000             trap   R0,R0,R0   ; request terminate
+  40 0020 c000      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>trap</span>   <span class='FIELDOPERAND'>R0,R0,R0</span><span class='FIELDCOMMENT'>   ; request terminate</span>
+  41 0021           
+  41 0021           
+  41 0021           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  42 0021           
+  42 0021           
+  42 0021           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  43 0021           ;------------------------------------------------------------------------
+  43 0021           ;------------------------------------------------------------------------
+  43 0021           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;------------------------------------------------------------------------</span>
+  44 0021           ; procedure printx
+  44 0021           ; procedure printx
+  44 0021           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; procedure printx</span>
+  45 0021           printx
+  45 0021           printx
+  45 0021           <span class='FIELDLABEL'>printx</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  46 0021 f102 0042         store  R1,x[R0]   ; x := R1 (result of pop)
+  46 0021 f102 0042         store  R1,x[R0]   ; x := R1 (result of pop)
+  46 0021 f102 0042 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>store</span>  <span class='FIELDOPERAND'>R1,x[R0]</span><span class='FIELDCOMMENT'>   ; x := R1 (result of pop)</span>
+  47 0023 f100 0002         lea    R1,2[R0]   ; trap code for write
+  47 0023 f100 0002         lea    R1,2[R0]   ; trap code for write
+  47 0023 f100 0002 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R1,2[R0]</span><span class='FIELDCOMMENT'>   ; trap code for write</span>
+  48 0025 f200 0042         lea    R2,x[R0]   ; address of string to write
+  48 0025 f200 0042         lea    R2,x[R0]   ; address of string to write
+  48 0025 f200 0042 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R2,x[R0]</span><span class='FIELDCOMMENT'>   ; address of string to write</span>
+  49 0027 f300 0002         lea    R3,2[R0]   ; length of string to write
+  49 0027 f300 0002         lea    R3,2[R0]   ; length of string to write
+  49 0027 f300 0002 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R3,2[R0]</span><span class='FIELDCOMMENT'>   ; length of string to write</span>
+  50 0029 c123              trap   R1,R2,R3   ; request the write operation
+  50 0029 c123              trap   R1,R2,R3   ; request the write operation
+  50 0029 c123      <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>trap</span>   <span class='FIELDOPERAND'>R1,R2,R3</span><span class='FIELDCOMMENT'>   ; request the write operation</span>
+  51 002a f0d3 0000         jump   0[R13]     ; return
+  51 002a f0d3 0000         jump   0[R13]     ; return
+  51 002a f0d3 0000 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>jump</span>   <span class='FIELDOPERAND'>0[R13]</span><span class='FIELDCOMMENT'>     ; return</span>
+  52 002c           
+  52 002c           
+  52 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  53 002c           
+  53 002c           
+  53 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  54 002c           ;------------------------------------------------------------------------
+  54 002c           ;------------------------------------------------------------------------
+  54 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;------------------------------------------------------------------------</span>
+  55 002c           ; Representation of stack
+  55 002c           ; Representation of stack
+  55 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Representation of stack</span>
+  56 002c           ;   stLim  = maximum number of elements allowed
+  56 002c           ;   stLim  = maximum number of elements allowed
+  56 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   stLim  = maximum number of elements allowed</span>
+  57 002c           ;   stTop  = current number of elements
+  57 002c           ;   stTop  = current number of elements
+  57 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   stTop  = current number of elements</span>
+  58 002c           ;   stack  = first element of array representing the stack
+  58 002c           ;   stack  = first element of array representing the stack
+  58 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   stack  = first element of array representing the stack</span>
+  59 002c           
+  59 002c           
+  59 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  60 002c           
+  60 002c           
+  60 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  61 002c           ; procedure push (x)
+  61 002c           ; procedure push (x)
+  61 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; procedure push (x)</span>
+  62 002c           ; Argument x is in R1, return address in R13
+  62 002c           ; Argument x is in R1, return address in R13
+  62 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Argument x is in R1, return address in R13</span>
+  63 002c           ;   stack[stTop] := x; stTop := stTop + 1
+  63 002c           ;   stack[stTop] := x; stTop := stTop + 1
+  63 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   stack[stTop] := x; stTop := stTop + 1</span>
+  64 002c           
+  64 002c           
+  64 002c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  65 002c f201 004a push    load   R2,stTop[R0]   ; R2 := stTop
+  65 002c f201 004a push    load   R2,stTop[R0]   ; R2 := stTop
+  65 002c f201 004a <span class='FIELDLABEL'>push</span>    <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R2,stTop[R0]</span><span class='FIELDCOMMENT'>   ; R2 := stTop</span>
+  66 002e f122 004b         store  R1,stack[R2]   ; stack[stTop] := x
+  66 002e f122 004b         store  R1,stack[R2]   ; stack[stTop] := x
+  66 002e f122 004b <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>store</span>  <span class='FIELDOPERAND'>R1,stack[R2]</span><span class='FIELDCOMMENT'>   ; stack[stTop] := x</span>
+  67 0030 f300 0001         lea    R3,1[R0]       ; R3 := constant 1
+  67 0030 f300 0001         lea    R3,1[R0]       ; R3 := constant 1
+  67 0030 f300 0001 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R3,1[R0]</span><span class='FIELDCOMMENT'>       ; R3 := constant 1</span>
+  68 0032 0223              add    R2,R2,R3       ; R2 := stTop + 1
+  68 0032 0223              add    R2,R2,R3       ; R2 := stTop + 1
+  68 0032 0223      <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>add</span>    <span class='FIELDOPERAND'>R2,R2,R3</span><span class='FIELDCOMMENT'>       ; R2 := stTop + 1</span>
+  69 0033 f202 004a         store  R2,stTop[R0]   ; stTop := stTop + 1
+  69 0033 f202 004a         store  R2,stTop[R0]   ; stTop := stTop + 1
+  69 0033 f202 004a <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>store</span>  <span class='FIELDOPERAND'>R2,stTop[R0]</span><span class='FIELDCOMMENT'>   ; stTop := stTop + 1</span>
+  70 0035 f0d3 0000         jump   0[R13]         ; return
+  70 0035 f0d3 0000         jump   0[R13]         ; return
+  70 0035 f0d3 0000 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>jump</span>   <span class='FIELDOPERAND'>0[R13]</span><span class='FIELDCOMMENT'>         ; return</span>
+  71 0037           
+  71 0037           
+  71 0037           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  72 0037           ; function pop()
+  72 0037           ; function pop()
+  72 0037           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; function pop()</span>
+  73 0037           ; Result is returned in R1, return address in R13
+  73 0037           ; Result is returned in R1, return address in R13
+  73 0037           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Result is returned in R1, return address in R13</span>
+  74 0037           ;   stTop := stTop - 1; x := stack[stTop]
+  74 0037           ;   stTop := stTop - 1; x := stack[stTop]
+  74 0037           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   stTop := stTop - 1; x := stack[stTop]</span>
+  75 0037           
+  75 0037           
+  75 0037           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  76 0037 f201 004a pop     load   R2,stTop[R0]   ; R2 := stTop
+  76 0037 f201 004a pop     load   R2,stTop[R0]   ; R2 := stTop
+  76 0037 f201 004a <span class='FIELDLABEL'>pop</span>     <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R2,stTop[R0]</span><span class='FIELDCOMMENT'>   ; R2 := stTop</span>
+  77 0039 f300 0001         lea    R3,1[R0]       ; R3 := constant 1
+  77 0039 f300 0001         lea    R3,1[R0]       ; R3 := constant 1
+  77 0039 f300 0001 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R3,1[R0]</span><span class='FIELDCOMMENT'>       ; R3 := constant 1</span>
+  78 003b 1223              sub    R2,R2,R3       ; R2 := stTop - 1
+  78 003b 1223              sub    R2,R2,R3       ; R2 := stTop - 1
+  78 003b 1223      <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>sub</span>    <span class='FIELDOPERAND'>R2,R2,R3</span><span class='FIELDCOMMENT'>       ; R2 := stTop - 1</span>
+  79 003c f121 004b         load   R1,stack[R2]   ; R1 := stack[stTop-1]
+  79 003c f121 004b         load   R1,stack[R2]   ; R1 := stack[stTop-1]
+  79 003c f121 004b <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>load</span>   <span class='FIELDOPERAND'>R1,stack[R2]</span><span class='FIELDCOMMENT'>   ; R1 := stack[stTop-1]</span>
+  80 003e f202 004a         store  R2,stTop[R0]   ; stTop := stTop - 1
+  80 003e f202 004a         store  R2,stTop[R0]   ; stTop := stTop - 1
+  80 003e f202 004a <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>store</span>  <span class='FIELDOPERAND'>R2,stTop[R0]</span><span class='FIELDCOMMENT'>   ; stTop := stTop - 1</span>
+  81 0040 f0d3 0000         jump   0[R13]         ; return
+  81 0040 f0d3 0000         jump   0[R13]         ; return
+  81 0040 f0d3 0000 <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>jump</span>   <span class='FIELDOPERAND'>0[R13]</span><span class='FIELDCOMMENT'>         ; return</span>
+  82 0042           
+  82 0042           
+  82 0042           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  83 0042           
+  83 0042           
+  83 0042           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  84 0042           ;------------------------------------------------------------------------
+  84 0042           ;------------------------------------------------------------------------
+  84 0042           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;------------------------------------------------------------------------</span>
+  85 0042           ; Data
+  85 0042           ; Data
+  85 0042           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Data</span>
+  86 0042           
+  86 0042           
+  86 0042           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  87 0042           ; x is the string that will be printed
+  87 0042           ; x is the string that will be printed
+  87 0042           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; x is the string that will be printed</span>
+  88 0042 0000      x       data   0      ; dummy initial value
+  88 0042 0000      x       data   0      ; dummy initial value
+  88 0042 0000      <span class='FIELDLABEL'>x</span>       <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'>      ; dummy initial value</span>
+  89 0043 000a              data  10      ; character code for newline
+  89 0043 000a              data  10      ; character code for newline
+  89 0043 000a      <span class='FIELDLABEL'></span>        <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>10</span><span class='FIELDCOMMENT'>      ; character code for newline</span>
+  90 0044           
+  90 0044           
+  90 0044           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  91 0044           ; Unicode character definitions
+  91 0044           ; Unicode character definitions
+  91 0044           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Unicode character definitions</span>
+  92 0044 0061      char_a  data   97     ; character code for 'a'
+  92 0044 0061      char_a  data   97     ; character code for 'a'
+  92 0044 0061      <span class='FIELDLABEL'>char_a</span>  <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>97</span><span class='FIELDCOMMENT'>     ; character code for 'a'</span>
+  93 0045 0062      char_b  data   98     ; character code for 'b'
+  93 0045 0062      char_b  data   98     ; character code for 'b'
+  93 0045 0062      <span class='FIELDLABEL'>char_b</span>  <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>98</span><span class='FIELDCOMMENT'>     ; character code for 'b'</span>
+  94 0046 0063      char_c  data   99     ; character code for 'c'
+  94 0046 0063      char_c  data   99     ; character code for 'c'
+  94 0046 0063      <span class='FIELDLABEL'>char_c</span>  <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>99</span><span class='FIELDCOMMENT'>     ; character code for 'c'</span>
+  95 0047 0064      char_d  data  100     ; character code for 'd'
+  95 0047 0064      char_d  data  100     ; character code for 'd'
+  95 0047 0064      <span class='FIELDLABEL'>char_d</span>  <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>100</span><span class='FIELDCOMMENT'>     ; character code for 'd'</span>
+  96 0048 0065      char_e  data  101     ; character code for 'e'
+  96 0048 0065      char_e  data  101     ; character code for 'e'
+  96 0048 0065      <span class='FIELDLABEL'>char_e</span>  <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>101</span><span class='FIELDCOMMENT'>     ; character code for 'e'</span>
+  97 0049           
+  97 0049           
+  97 0049           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  98 0049           ; Stack
+  98 0049           ; Stack
+  98 0049           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Stack</span>
+  99 0049 0064      stLim   data   100     ; maximum number of elements in stack
+  99 0049 0064      stLim   data   100     ; maximum number of elements in stack
+  99 0049 0064      <span class='FIELDLABEL'>stLim</span>   <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>100</span><span class='FIELDCOMMENT'>     ; maximum number of elements in stack</span>
+ 100 004a 0000      stTop   data     0     ; current number of elements
+ 100 004a 0000      stTop   data     0     ; current number of elements
+ 100 004a 0000      <span class='FIELDLABEL'>stTop</span>   <span class='FIELDOPERATION'>data</span>     <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'>     ; current number of elements</span>
+ 101 004b 0000      stack   data     0     ; first location in array of elements
+ 101 004b 0000      stack   data     0     ; first location in array of elements
+ 101 004b 0000      <span class='FIELDLABEL'>stack</span>   <span class='FIELDOPERATION'>data</span>     <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'>     ; first location in array of elements</span>
+ 102 004c           
+ 102 004c           
+ 102 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 103 004c           ;------------------------------------------------------------------------
+ 103 004c           ;------------------------------------------------------------------------
+ 103 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;------------------------------------------------------------------------</span>
+ 104 004c           ; error checking
+ 104 004c           ; error checking
+ 104 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; error checking</span>
+ 105 004c           
+ 105 004c           
+ 105 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 106 004c           ; Error handling.  Operations on a stack can fail: if push is called
+ 106 004c           ; Error handling.  Operations on a stack can fail: if push is called
+ 106 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Error handling.  Operations on a stack can fail: if push is called</span>
+ 107 004c           ; when the stack is full it fails because there is no space to store
+ 107 004c           ; when the stack is full it fails because there is no space to store
+ 107 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; when the stack is full it fails because there is no space to store</span>
+ 108 004c           ; the new element; if pop is called when the stack is empty it fails
+ 108 004c           ; the new element; if pop is called when the stack is empty it fails
+ 108 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; the new element; if pop is called when the stack is empty it fails</span>
+ 109 004c           ; because there is no element to return.  Ideally, we would like to
+ 109 004c           ; because there is no element to return.  Ideally, we would like to
+ 109 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; because there is no element to return.  Ideally, we would like to</span>
+ 110 004c           ; handle errors either by returning an error code or by throwing an
+ 110 004c           ; handle errors either by returning an error code or by throwing an
+ 110 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; handle errors either by returning an error code or by throwing an</span>
+ 111 004c           ; exception.  However, for simplicity this program simply terminates
+ 111 004c           ; exception.  However, for simplicity this program simply terminates
+ 111 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; exception.  However, for simplicity this program simply terminates</span>
+ 112 004c           ; if an error occurs.
+ 112 004c           ; if an error occurs.
+ 112 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; if an error occurs.</span>
+ 113 004c           
+ 113 004c           
+ 113 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 114 004c           ; push (v)
+ 114 004c           ; push (v)
+ 114 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push (v)</span>
+ 115 004c           ; if stTop >= stLim
+ 115 004c           ; if stTop >= stLim
+ 115 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; if stTop >= stLim</span>
+ 116 004c           ;     then
+ 116 004c           ;     then
+ 116 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     then</span>
+ 117 004c           ;       { terminate because the stack is full: cannot push }
+ 117 004c           ;       { terminate because the stack is full: cannot push }
+ 117 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { terminate because the stack is full: cannot push }</span>
+ 118 004c           ;     else
+ 118 004c           ;     else
+ 118 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     else</span>
+ 119 004c           ;       { stack[stTop] := v;
+ 119 004c           ;       { stack[stTop] := v;
+ 119 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { stack[stTop] := v;</span>
+ 120 004c           ;         stTop := stTop + 1;
+ 120 004c           ;         stTop := stTop + 1;
+ 120 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         stTop := stTop + 1;</span>
+ 121 004c           ;         return ();
+ 121 004c           ;         return ();
+ 121 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         return ();</span>
+ 122 004c           ;       }
+ 122 004c           ;       }
+ 122 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       }</span>
+ 123 004c           
+ 123 004c           
+ 123 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 124 004c           ; push
+ 124 004c           ; push
+ 124 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push</span>
+ 125 004c           ;       lea    R2,1[R0]       ; R2 = constant 1
+ 125 004c           ;       lea    R2,1[R0]       ; R2 = constant 1
+ 125 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       lea    R2,1[R0]       ; R2 = constant 1</span>
+ 126 004c           ;       load   R3,stTop[R0]   ; R3 = stTop
+ 126 004c           ;       load   R3,stTop[R0]   ; R3 = stTop
+ 126 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       load   R3,stTop[R0]   ; R3 = stTop</span>
+ 127 004c           ;       load   R4,stLim[R0]   ; R4 = stLim
+ 127 004c           ;       load   R4,stLim[R0]   ; R4 = stLim
+ 127 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       load   R4,stLim[R0]   ; R4 = stLim</span>
+ 128 004c           ;       cmp    R3,R4          ; compare stTop with stLim
+ 128 004c           ;       cmp    R3,R4          ; compare stTop with stLim
+ 128 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       cmp    R3,R4          ; compare stTop with stLim</span>
+ 129 004c           ;       jumplt pushOK[R0]     ; if (stTop &lt; stLim) then goto pushOk
+ 129 004c           ;       jumplt pushOK[R0]     ; if (stTop &lt; stLim) then goto pushOk
+ 129 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       jumplt pushOK[R0]     ; if (stTop &lt; stLim) then goto pushOk</span>
+ 130 004c           
+ 130 004c           
+ 130 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 131 004c           ; push (v)
+ 131 004c           ; push (v)
+ 131 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push (v)</span>
+ 132 004c           ; if stTop >= stLim
+ 132 004c           ; if stTop >= stLim
+ 132 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; if stTop >= stLim</span>
+ 133 004c           ;     then
+ 133 004c           ;     then
+ 133 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     then</span>
+ 134 004c           ;       { terminate because the stack is full: cannot push }
+ 134 004c           ;       { terminate because the stack is full: cannot push }
+ 134 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { terminate because the stack is full: cannot push }</span>
+ 135 004c           ;     else
+ 135 004c           ;     else
+ 135 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     else</span>
+ 136 004c           ;       { stack[stTop] := v;
+ 136 004c           ;       { stack[stTop] := v;
+ 136 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { stack[stTop] := v;</span>
+ 137 004c           ;         stTop := stTop + 1;
+ 137 004c           ;         stTop := stTop + 1;
+ 137 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         stTop := stTop + 1;</span>
+ 138 004c           ;         return ();
+ 138 004c           ;         return ();
+ 138 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         return ();</span>
+ 139 004c           ;       }
+ 139 004c           ;       }
+ 139 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       }</span>
+ 140 004c           
+ 140 004c           
+ 140 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 141 004c           ; push failed because stack is full, so terminate.
+ 141 004c           ; push failed because stack is full, so terminate.
+ 141 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; push failed because stack is full, so terminate.</span>
+ 142 004c           
+ 142 004c           
+ 142 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 143 004c           ; v = pop ()
+ 143 004c           ; v = pop ()
+ 143 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; v = pop ()</span>
+ 144 004c           ;   if
+ 144 004c           ;   if
+ 144 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   if</span>
+ 145 004c           ;     then
+ 145 004c           ;     then
+ 145 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     then</span>
+ 146 004c           ;       { terminate because the stack is empty: cannot pop }
+ 146 004c           ;       { terminate because the stack is empty: cannot pop }
+ 146 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { terminate because the stack is empty: cannot pop }</span>
+ 147 004c           ;     else
+ 147 004c           ;     else
+ 147 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     else</span>
+ 148 004c           ;       { stTop := stTop - 1;
+ 148 004c           ;       { stTop := stTop - 1;
+ 148 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { stTop := stTop - 1;</span>
+ 149 004c           ;         v := stack[stTop];
+ 149 004c           ;         v := stack[stTop];
+ 149 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         v := stack[stTop];</span>
+ 150 004c           ;         return (v);
+ 150 004c           ;         return (v);
+ 150 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         return (v);</span>
+ 151 004c           ;       }
+ 151 004c           ;       }
+ 151 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       }</span>
+ 152 004c           
+ 152 004c           
+ 152 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 153 004c           ; v = pop ()
+ 153 004c           ; v = pop ()
+ 153 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; v = pop ()</span>
+ 154 004c           ;   if
+ 154 004c           ;   if
+ 154 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   if</span>
+ 155 004c           ;     then
+ 155 004c           ;     then
+ 155 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     then</span>
+ 156 004c           ;       { terminate because the stack is empty: cannot pop }
+ 156 004c           ;       { terminate because the stack is empty: cannot pop }
+ 156 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { terminate because the stack is empty: cannot pop }</span>
+ 157 004c           ;     else
+ 157 004c           ;     else
+ 157 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;     else</span>
+ 158 004c           ;       { stTop := stTop - 1;
+ 158 004c           ;       { stTop := stTop - 1;
+ 158 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       { stTop := stTop - 1;</span>
+ 159 004c           ;         v := stack[stTop];
+ 159 004c           ;         v := stack[stTop];
+ 159 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         v := stack[stTop];</span>
+ 160 004c           ;         return (v);
+ 160 004c           ;         return (v);
+ 160 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         return (v);</span>
+ 161 004c           ;       }
+ 161 004c           ;       }
+ 161 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       }</span>
+ 162 004c           
+ 162 004c           
+ 162 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+ 163 004c           
+ 163 004c           
+ 163 004c           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+
+
+
+Symbol table
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Symbol table</span>
+Name        Val Org Mov  Def Used
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+char_a     0044 Loc Rel   92  8
+char_a     0044 Loc Rel   92  8
+char_a     0044 Loc Rel   92  8
+char_b     0045 Loc Rel   93  12
+char_b     0045 Loc Rel   93  12
+char_b     0045 Loc Rel   93  12
+char_c     0046 Loc Rel   94  16
+char_c     0046 Loc Rel   94  16
+char_c     0046 Loc Rel   94  16
+char_d     0047 Loc Rel   95  24
+char_d     0047 Loc Rel   95  24
+char_d     0047 Loc Rel   95  24
+char_e     0048 Loc Rel   96  
+char_e     0048 Loc Rel   96  
+char_e     0048 Loc Rel   96  
+pop        0037 Loc Rel   76  20,28,32,36
+pop        0037 Loc Rel   76  20,28,32,36
+pop        0037 Loc Rel   76  20,28,32,36
+printx     0021 Loc Rel   45  21,29,33,37
+printx     0021 Loc Rel   45  21,29,33,37
+printx     0021 Loc Rel   45  21,29,33,37
+push       002c Loc Rel   65  9,13,17,25
+push       002c Loc Rel   65  9,13,17,25
+push       002c Loc Rel   65  9,13,17,25
+stLim      0049 Loc Rel   99  
+stLim      0049 Loc Rel   99  
+stLim      0049 Loc Rel   99  
+stTop      004a Loc Rel  100  65,69,76,80
+stTop      004a Loc Rel  100  65,69,76,80
+stTop      004a Loc Rel  100  65,69,76,80
+stack      004b Loc Rel  101  66,79
+stack      004b Loc Rel  101  66,79
+stack      004b Loc Rel  101  66,79
+x          0042 Loc Rel   88  46,48
+x          0042 Loc Rel   88  46,48
+x          0042 Loc Rel   88  46,48

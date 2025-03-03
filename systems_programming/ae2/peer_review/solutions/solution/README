@@ -1,0 +1,4 @@
+Use diff -w to ignore whitespace differences between the files, e.g.
+
+% ../dependencyDiscoverer *.y *.l *.c | diff -w - ../unseenOutput
+

@@ -1,0 +1,93 @@
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; ArraySum: find sum of the elements of an array
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   3 0000           
+   4 0000           ; The program is given
+   5 0000           ;   *  a natural number n, assume n >= 0
+   6 0000           ;   *  an n-element array x[0], x[1], ..., x[n-1]
+   7 0000           ;  It calculates
+   8 0000           ;   * sum = the sum x[0] + x[1] + ... + x[n-1]
+   9 0000           ;     If n=0 the sum should be 0.
+  10 0000           
+  11 0000           ;---------------------------------------------------------------------
+  12 0000           ; Algorithm in high level pseudocode
+  13 0000           
+  14 0000           ; program ArraySum
+  15 0000           ;   sum := 0
+  16 0000           ;   i := 0
+  17 0000           ;   while i &lt; n do
+  18 0000           ;     sum := sum + x[i]
+  19 0000           ;     i := i + 1
+  20 0000           
+  21 0000           ;---------------------------------------------------------------------
+  22 0000           ; Algorithm in low level pseudocode
+  23 0000           
+  24 0000           ;    sum := 0
+  25 0000           ;    i := 0
+  26 0000           ; whileloop:
+  27 0000           ;    if i >= n then goto done
+  28 0000           ;    sum := sum + x[i]
+  29 0000           ;    i := i + 1
+  30 0000           ;    goto whileloop
+  31 0000           ; done:
+  32 0000           ;    terminate
+  33 0000           
+  34 0000           ;---------------------------------------------------------------------
+  35 0000           ; Assembly language
+  36 0000           
+  37 0000           ; Register usage
+  38 0000           ;   R1 = constant 1
+  39 0000           ;   R2 = n
+  40 0000           ;   R3 = i
+  41 0000           ;   R4 = sum
+  42 0000           
+  43 0000           ; Initialise R1=1, R2=n=0, R3=i=0, R4=sum=0
+  44 0000           
+  45 0000 f100 0001        lea    R1,1[R0]       ; R1 = constant 1
+  46 0002 f201 0012        load   R2,n[R0]       ; R2 = n
+  47 0004           ; sum := 0
+  48 0004 0400             add    R4,R0,R0       ; R4 = sum = 0
+  49 0005           ; i := 0
+  50 0005 0300             add    R3,R0,R0       ; R3 = i = 0
+  51 0006           
+  52 0006           ; Top of loop, determine whether to remain in loop
+  53 0006           whileloop
+  54 0006           ; if i >= n then goto done
+  55 0006 4032             cmp    R3,R2          ; compare i, n
+  56 0007 f404 000f        jumpge done[R0]       ; if i>=n then goto done
+  57 0009           
+  58 0009           ; sum := sum + x[i]
+  59 0009 f531 0014        load   R5,x[R3]       ; R5 = x[i]
+  60 000b 0445             add    R4,R4,R5       ; sum := sum + x[i]
+  61 000c           
+  62 000c           ; i := i + 1
+  63 000c 0331             add    R3,R3,R1       ; i = i + 1
+  64 000d           
+  65 000d           ; goto whileloop
+  66 000d f003 0006        jump   whileloop[R0]  ; goto whileloop
+  67 000f           
+  68 000f f402 0013 done   store  R4,sum[R0]     ; sum := R4
+  69 0011 c000             trap   R0,R0,R0       ; terminate
+  70 0012           
+  71 0012           ; Data area
+  72 0012           ; With the following initial values, the expected result
+  73 0012           ;   = 18 + -33 + 21 + -2 + 40 + 25
+  74 0012           ;   = 69 = hex 0045
+  75 0012           
+  76 0012 0006      n        data   6
+  77 0013 0000      sum      data   0
+  78 0014 0012      x        data  18
+  79 0015 ffdf               data -33
+  80 0016 0015               data  21
+  81 0017 fffe               data  -2
+  82 0018 0028               data  40
+  83 0019 0019               data  25
+  84 001a           
+
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+done       000f Loc Rel   68  56
+n          0012 Loc Rel   76  46
+sum        0013 Loc Rel   77  68
+whileloop  0006 Loc Rel   53  66
+x          0014 Loc Rel   78  59

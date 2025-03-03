@@ -1,0 +1,27 @@
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; Add: a minimal program that adds two integer variables
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   3 0000           
+   4 0000           ; Execution starts at location 0, where the first instruction will be
+   5 0000           ; placed when the program is executed.
+   6 0000           
+   7 0000 f101 0008       load   R1,x[R0]   ; R1 := x
+   8 0002 f201 0009       load   R2,y[R0]   ; R2 := y
+   9 0004 0312            add    R3,R1,R2   ; R3 := x + y
+  10 0005 f302 000a       store  R3,z[R0]   ; z := x + y
+  11 0007 c000            trap   R0,R0,R0   ; terminate
+  12 0008           
+  13 0008           ; Expected result: z = x + y = 23 + 14 = 37 (hex 0025)
+  14 0008           
+  15 0008           ; Static variables are placed in memory after the program
+  16 0008           
+  17 0008 0017      x     data  23
+  18 0009 000e      y     data  14
+  19 000a 0000      z     data   0
+  20 000b           
+
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+x          0008 Loc Rel   17  7
+y          0009 Loc Rel   18  8
+z          000a Loc Rel   19  10

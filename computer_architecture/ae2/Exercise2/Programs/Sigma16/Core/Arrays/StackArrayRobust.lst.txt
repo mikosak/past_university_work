@@ -1,0 +1,179 @@
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; StackArrayRobust: stack implemented using array
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   3 0000           
+   4 0000           ;------------------------------------------------------------------------
+   5 0000           ; Main program
+   6 0000           
+   7 0000           ; push 'a'  -- stack = [a]
+   8 0000 f101 0044        load   R1,char_a[R0]    ; R1 = character to push
+   9 0002 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  10 0004           
+  11 0004           ; push 'b'  -- stack = [a,b]
+  12 0004 f101 0045        load   R1,char_b[R0]    ; R1 = character to push
+  13 0006 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  14 0008           
+  15 0008           ; push 'c'  -- stack = [a,b,c]
+  16 0008 f101 0046        load   R1,char_c[R0]    ; R1 = character to push
+  17 000a fd06 002c        jal    R13,push[R0]     ; push(R1)
+  18 000c           
+  19 000c           ; pop and print  -- print c, stack = [a,b]
+  20 000c fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  21 000e fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  22 0010           
+  23 0010           ; push 'd'  -- stack = [a,b,d]
+  24 0010 f101 0047        load   R1,char_d[R0]    ; R1 = character to push
+  25 0012 fd06 002c        jal    R13,push[R0]     ; push(R1)
+  26 0014           
+  27 0014           ; pop and print  -- print d, stack = [a,b]
+  28 0014 fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  29 0016 fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  30 0018           
+  31 0018           ; pop and print  -- print b, stack = [a]
+  32 0018 fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  33 001a fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  34 001c           
+  35 001c           ; pop and print  -- print a, stack = []
+  36 001c fd06 0037        jal    R13,pop[R0]      ; R1 := pop()
+  37 001e fd06 0021        jal    R13,printx[R0]   ; print character in R1
+  38 0020           
+  39 0020           ; finish
+  40 0020 c000             trap   R0,R0,R0   ; request terminate
+  41 0021           
+  42 0021           
+  43 0021           ;------------------------------------------------------------------------
+  44 0021           ; procedure printx
+  45 0021           printx
+  46 0021 f102 0042         store  R1,x[R0]   ; x := R1 (result of pop)
+  47 0023 f100 0002         lea    R1,2[R0]   ; trap code for write
+  48 0025 f200 0042         lea    R2,x[R0]   ; address of string to write
+  49 0027 f300 0002         lea    R3,2[R0]   ; length of string to write
+  50 0029 c123              trap   R1,R2,R3   ; request the write operation
+  51 002a f0d3 0000         jump   0[R13]     ; return
+  52 002c           
+  53 002c           
+  54 002c           ;------------------------------------------------------------------------
+  55 002c           ; Representation of stack
+  56 002c           ;   stLim  = maximum number of elements allowed
+  57 002c           ;   stTop  = current number of elements
+  58 002c           ;   stack  = first element of array representing the stack
+  59 002c           
+  60 002c           
+  61 002c           ; procedure push (x)
+  62 002c           ; Argument x is in R1, return address in R13
+  63 002c           ;   stack[stTop] := x; stTop := stTop + 1
+  64 002c           
+  65 002c f201 004a push    load   R2,stTop[R0]   ; R2 := stTop
+  66 002e f122 004b         store  R1,stack[R2]   ; stack[stTop] := x
+  67 0030 f300 0001         lea    R3,1[R0]       ; R3 := constant 1
+  68 0032 0223              add    R2,R2,R3       ; R2 := stTop + 1
+  69 0033 f202 004a         store  R2,stTop[R0]   ; stTop := stTop + 1
+  70 0035 f0d3 0000         jump   0[R13]         ; return
+  71 0037           
+  72 0037           ; function pop()
+  73 0037           ; Result is returned in R1, return address in R13
+  74 0037           ;   stTop := stTop - 1; x := stack[stTop]
+  75 0037           
+  76 0037 f201 004a pop     load   R2,stTop[R0]   ; R2 := stTop
+  77 0039 f300 0001         lea    R3,1[R0]       ; R3 := constant 1
+  78 003b 1223              sub    R2,R2,R3       ; R2 := stTop - 1
+  79 003c f121 004b         load   R1,stack[R2]   ; R1 := stack[stTop-1]
+  80 003e f202 004a         store  R2,stTop[R0]   ; stTop := stTop - 1
+  81 0040 f0d3 0000         jump   0[R13]         ; return
+  82 0042           
+  83 0042           
+  84 0042           ;------------------------------------------------------------------------
+  85 0042           ; Data
+  86 0042           
+  87 0042           ; x is the string that will be printed
+  88 0042 0000      x       data   0      ; dummy initial value
+  89 0043 000a              data  10      ; character code for newline
+  90 0044           
+  91 0044           ; Unicode character definitions
+  92 0044 0061      char_a  data   97     ; character code for 'a'
+  93 0045 0062      char_b  data   98     ; character code for 'b'
+  94 0046 0063      char_c  data   99     ; character code for 'c'
+  95 0047 0064      char_d  data  100     ; character code for 'd'
+  96 0048 0065      char_e  data  101     ; character code for 'e'
+  97 0049           
+  98 0049           ; Stack
+  99 0049 0064      stLim   data   100     ; maximum number of elements in stack
+ 100 004a 0000      stTop   data     0     ; current number of elements
+ 101 004b 0000      stack   data     0     ; first location in array of elements
+ 102 004c           
+ 103 004c           ;------------------------------------------------------------------------
+ 104 004c           ; error checking
+ 105 004c           
+ 106 004c           ; Error handling.  Operations on a stack can fail: if push is called
+ 107 004c           ; when the stack is full it fails because there is no space to store
+ 108 004c           ; the new element; if pop is called when the stack is empty it fails
+ 109 004c           ; because there is no element to return.  Ideally, we would like to
+ 110 004c           ; handle errors either by returning an error code or by throwing an
+ 111 004c           ; exception.  However, for simplicity this program simply terminates
+ 112 004c           ; if an error occurs.
+ 113 004c           
+ 114 004c           ; push (v)
+ 115 004c           ; if stTop >= stLim
+ 116 004c           ;     then
+ 117 004c           ;       { terminate because the stack is full: cannot push }
+ 118 004c           ;     else
+ 119 004c           ;       { stack[stTop] := v;
+ 120 004c           ;         stTop := stTop + 1;
+ 121 004c           ;         return ();
+ 122 004c           ;       }
+ 123 004c           
+ 124 004c           ; push
+ 125 004c           ;       lea    R2,1[R0]       ; R2 = constant 1
+ 126 004c           ;       load   R3,stTop[R0]   ; R3 = stTop
+ 127 004c           ;       load   R4,stLim[R0]   ; R4 = stLim
+ 128 004c           ;       cmp    R3,R4          ; compare stTop with stLim
+ 129 004c           ;       jumplt pushOK[R0]     ; if (stTop &lt; stLim) then goto pushOk
+ 130 004c           
+ 131 004c           ; push (v)
+ 132 004c           ; if stTop >= stLim
+ 133 004c           ;     then
+ 134 004c           ;       { terminate because the stack is full: cannot push }
+ 135 004c           ;     else
+ 136 004c           ;       { stack[stTop] := v;
+ 137 004c           ;         stTop := stTop + 1;
+ 138 004c           ;         return ();
+ 139 004c           ;       }
+ 140 004c           
+ 141 004c           ; push failed because stack is full, so terminate.
+ 142 004c           
+ 143 004c           ; v = pop ()
+ 144 004c           ;   if
+ 145 004c           ;     then
+ 146 004c           ;       { terminate because the stack is empty: cannot pop }
+ 147 004c           ;     else
+ 148 004c           ;       { stTop := stTop - 1;
+ 149 004c           ;         v := stack[stTop];
+ 150 004c           ;         return (v);
+ 151 004c           ;       }
+ 152 004c           
+ 153 004c           ; v = pop ()
+ 154 004c           ;   if
+ 155 004c           ;     then
+ 156 004c           ;       { terminate because the stack is empty: cannot pop }
+ 157 004c           ;     else
+ 158 004c           ;       { stTop := stTop - 1;
+ 159 004c           ;         v := stack[stTop];
+ 160 004c           ;         return (v);
+ 161 004c           ;       }
+ 162 004c           
+ 163 004c           
+
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+char_a     0044 Loc Rel   92  8
+char_b     0045 Loc Rel   93  12
+char_c     0046 Loc Rel   94  16
+char_d     0047 Loc Rel   95  24
+char_e     0048 Loc Rel   96  
+pop        0037 Loc Rel   76  20,28,32,36
+printx     0021 Loc Rel   45  21,29,33,37
+push       002c Loc Rel   65  9,13,17,25
+stLim      0049 Loc Rel   99  
+stTop      004a Loc Rel  100  65,69,76,80
+stack      004b Loc Rel  101  66,79
+x          0042 Loc Rel   88  46,48

@@ -1,0 +1,16 @@
+    lea R1,$0003[R0]   ; R1 := 0003
+    lea R2,$0005[R0]   ; R2 := 0005
+
+    data $5312         ; inv R3,R1 R3 := fffc
+    data $6412         ; and R4,R1,R2 R4 := 0001
+    data $7512         ; or R5,R1,R2 R5 := 0007
+    data $8612         ; xor R6,R1,R2 R6 := 0006
+    trap R0,R0,R0      ; terminate
+
+                       ; Expected results
+                       ; R1 = 0003
+                       ; R2 = 0005
+                       ; R3 = fffc
+                       ; R4 = 0001
+                       ; R5 = 0007
+                       ; R6 = 0006

@@ -1,0 +1,287 @@
+0,27,1,27
+2,28,3,29
+4,30,5,31
+6,31,7,36
+8,37,9,37
+10,40,11,40
+12,41,13,42
+14,42,15,45
+16,46,17,46
+18,49,19,52
+20,53,21,53
+22,56,23,56
+24,57,25,57
+26,58,27,64
+28,65,29,66
+30,68,31,69
+32,70,33,71
+34,72,35,73
+36,74,37,75
+source
+Line Addr Code Code Source
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; SumCount: traverse array and calculate two values
+   1 0000           ; SumCount: traverse array and calculate two values
+   1 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; SumCount: traverse array and calculate two values</span>
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022</span>
+   3 0000           
+   3 0000           
+   3 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   4 0000           ; Traverse array and calculate two values, possum and negcount
+   4 0000           ; Traverse array and calculate two values, possum and negcount
+   4 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Traverse array and calculate two values, possum and negcount</span>
+   5 0000           
+   5 0000           
+   5 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   6 0000           ; The program is given
+   6 0000           ; The program is given
+   6 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; The program is given</span>
+   7 0000           ;  --  a natural number n
+   7 0000           ;  --  a natural number n
+   7 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;  --  a natural number n</span>
+   8 0000           ;  --  an n-element array x[0], x[1], ..., x[n-1]
+   8 0000           ;  --  an n-element array x[0], x[1], ..., x[n-1]
+   8 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;  --  an n-element array x[0], x[1], ..., x[n-1]</span>
+   9 0000           ;  It calculates
+   9 0000           ;  It calculates
+   9 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;  It calculates</span>
+  10 0000           ;  -- possum = the sum of the nonnegative elements of x
+  10 0000           ;  -- possum = the sum of the nonnegative elements of x
+  10 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;  -- possum = the sum of the nonnegative elements of x</span>
+  11 0000           ;  -- negcount = the number of negative elements of x
+  11 0000           ;  -- negcount = the number of negative elements of x
+  11 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;  -- negcount = the number of negative elements of x</span>
+  12 0000           
+  12 0000           
+  12 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  13 0000           ;   possum := 0
+  13 0000           ;   possum := 0
+  13 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   possum := 0</span>
+  14 0000           ;   negcount := 0
+  14 0000           ;   negcount := 0
+  14 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   negcount := 0</span>
+  15 0000           ;   for i := 0 to n-1 step 1
+  15 0000           ;   for i := 0 to n-1 step 1
+  15 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   for i := 0 to n-1 step 1</span>
+  16 0000           ;       if x[i] >= 0
+  16 0000           ;       if x[i] >= 0
+  16 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;       if x[i] >= 0</span>
+  17 0000           ;         then possum := possum + x[i]
+  17 0000           ;         then possum := possum + x[i]
+  17 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         then possum := possum + x[i]</span>
+  18 0000           ;         else negcount := negcount + 1
+  18 0000           ;         else negcount := negcount + 1
+  18 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;         else negcount := negcount + 1</span>
+  19 0000           
+  19 0000           
+  19 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  20 0000           ; Register usage
+  20 0000           ; Register usage
+  20 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Register usage</span>
+  21 0000           ;   R1 = n
+  21 0000           ;   R1 = n
+  21 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R1 = n</span>
+  22 0000           ;   R2 = i
+  22 0000           ;   R2 = i
+  22 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R2 = i</span>
+  23 0000           ;   R3 = possum
+  23 0000           ;   R3 = possum
+  23 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R3 = possum</span>
+  24 0000           ;   R4 = negcount
+  24 0000           ;   R4 = negcount
+  24 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R4 = negcount</span>
+  25 0000           ;   R5 = constant 1
+  25 0000           ;   R5 = constant 1
+  25 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R5 = constant 1</span>
+  26 0000           
+  26 0000           
+  26 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  27 0000           ; Initialise
+  27 0000           ; Initialise
+  27 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Initialise</span>
+  28 0000 f101 001b        load  R1,n[R0]          ; R1 = n
+  28 0000 f101 001b        load  R1,n[R0]          ; R1 = n
+  28 0000 f101 001b <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>  <span class='FIELDOPERAND'>R1,n[R0]</span><span class='FIELDCOMMENT'>          ; R1 = n</span>
+  29 0002 0200             add   R2,R0,R0          ; i = 0
+  29 0002 0200             add   R2,R0,R0          ; i = 0
+  29 0002 0200      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>   <span class='FIELDOPERAND'>R2,R0,R0</span><span class='FIELDCOMMENT'>          ; i = 0</span>
+  30 0003 0300             add   R3,R0,R0          ; possum = 0
+  30 0003 0300             add   R3,R0,R0          ; possum = 0
+  30 0003 0300      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>   <span class='FIELDOPERAND'>R3,R0,R0</span><span class='FIELDCOMMENT'>          ; possum = 0</span>
+  31 0004 0400             add   R4,R0,R0          ; negcount = 0
+  31 0004 0400             add   R4,R0,R0          ; negcount = 0
+  31 0004 0400      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>   <span class='FIELDOPERAND'>R4,R0,R0</span><span class='FIELDCOMMENT'>          ; negcount = 0</span>
+  32 0005 f500 0001        lea   R5,1[R0]          ; R5 = constant 1
+  32 0005 f500 0001        lea   R5,1[R0]          ; R5 = constant 1
+  32 0005 f500 0001 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>lea</span>   <span class='FIELDOPERAND'>R5,1[R0]</span><span class='FIELDCOMMENT'>          ; R5 = constant 1</span>
+  33 0007           
+  33 0007           
+  33 0007           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  34 0007           ; Top of loop, determine whether to remain in loop
+  34 0007           ; Top of loop, determine whether to remain in loop
+  34 0007           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Top of loop, determine whether to remain in loop</span>
+  35 0007           
+  35 0007           
+  35 0007           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  36 0007           loop
+  36 0007           loop
+  36 0007           <span class='FIELDLABEL'>loop</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  37 0007 4021             cmp     R2,R1            ; compare i, n
+  37 0007 4021             cmp     R2,R1            ; compare i, n
+  37 0007 4021      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>cmp</span>     <span class='FIELDOPERAND'>R2,R1</span><span class='FIELDCOMMENT'>            ; compare i, n</span>
+  38 0008 f404 0016        jumpge  done[R0]         ; if i >= n then goto done
+  38 0008 f404 0016        jumpge  done[R0]         ; if i >= n then goto done
+  38 0008 f404 0016 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jumpge</span>  <span class='FIELDOPERAND'>done[R0]</span><span class='FIELDCOMMENT'>         ; if i >= n then goto done</span>
+  39 000a           
+  39 000a           
+  39 000a           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  40 000a           ; Find out whether x[i] is negative or nonnegative
+  40 000a           ; Find out whether x[i] is negative or nonnegative
+  40 000a           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Find out whether x[i] is negative or nonnegative</span>
+  41 000a f621 001e        load    R6,x[R2]         ; R6 = x[i]
+  41 000a f621 001e        load    R6,x[R2]         ; R6 = x[i]
+  41 000a f621 001e <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>load</span>    <span class='FIELDOPERAND'>R6,x[R2]</span><span class='FIELDCOMMENT'>         ; R6 = x[i]</span>
+  42 000c 4060             cmp     R6,R0            ; compare x[i], 0
+  42 000c 4060             cmp     R6,R0            ; compare x[i], 0
+  42 000c 4060      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>cmp</span>     <span class='FIELDOPERAND'>R6,R0</span><span class='FIELDCOMMENT'>            ; compare x[i], 0</span>
+  43 000d f405 0012        jumplt  neg[R0]          ; if x[i] &lt; 0 then goto neg
+  43 000d f405 0012        jumplt  neg[R0]          ; if x[i] &lt; 0 then goto neg
+  43 000d f405 0012 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jumplt</span>  <span class='FIELDOPERAND'>neg[R0]</span><span class='FIELDCOMMENT'>          ; if x[i] &lt; 0 then goto neg</span>
+  44 000f           
+  44 000f           
+  44 000f           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  45 000f           ; We have x[i] >= 0
+  45 000f           ; We have x[i] >= 0
+  45 000f           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; We have x[i] >= 0</span>
+  46 000f 0336             add     R3,R3,R6         ; possum = possum + x[i]
+  46 000f 0336             add     R3,R3,R6         ; possum = possum + x[i]
+  46 000f 0336      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>add</span>     <span class='FIELDOPERAND'>R3,R3,R6</span><span class='FIELDCOMMENT'>         ; possum = possum + x[i]</span>
+  47 0010 f003 0013        jump    next[R0]         ; goto bottom of loop
+  47 0010 f003 0013        jump    next[R0]         ; goto bottom of loop
+  47 0010 f003 0013 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jump</span>    <span class='FIELDOPERAND'>next[R0]</span><span class='FIELDCOMMENT'>         ; goto bottom of loop</span>
+  48 0012           
+  48 0012           
+  48 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  49 0012           ; We have x[i] &lt; 0
+  49 0012           ; We have x[i] &lt; 0
+  49 0012           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; We have x[i] &lt; 0</span>
+  50 0012 0445      neg    add     R4,R4,R5         ; negcount = negcount + 1
+  50 0012 0445      neg    add     R4,R4,R5         ; negcount = negcount + 1
+  50 0012 0445      <span class='FIELDLABEL'>neg</span>    <span class='FIELDOPERATION'>add</span>     <span class='FIELDOPERAND'>R4,R4,R5</span><span class='FIELDCOMMENT'>         ; negcount = negcount + 1</span>
+  51 0013           
+  51 0013           
+  51 0013           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  52 0013           ; Bottom of loop, increment loop index
+  52 0013           ; Bottom of loop, increment loop index
+  52 0013           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Bottom of loop, increment loop index</span>
+  53 0013 0225      next   add     R2,R2,R5         ; i = i + 1
+  53 0013 0225      next   add     R2,R2,R5         ; i = i + 1
+  53 0013 0225      <span class='FIELDLABEL'>next</span>   <span class='FIELDOPERATION'>add</span>     <span class='FIELDOPERAND'>R2,R2,R5</span><span class='FIELDCOMMENT'>         ; i = i + 1</span>
+  54 0014 f003 0007        jump    loop[R0]         ; go to top of loop
+  54 0014 f003 0007        jump    loop[R0]         ; go to top of loop
+  54 0014 f003 0007 <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>jump</span>    <span class='FIELDOPERAND'>loop[R0]</span><span class='FIELDCOMMENT'>         ; go to top of loop</span>
+  55 0016           
+  55 0016           
+  55 0016           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  56 0016           ; Exit from loop
+  56 0016           ; Exit from loop
+  56 0016           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Exit from loop</span>
+  57 0016 f302 001c done   store   R3,possum[R0]    ; possum = R3
+  57 0016 f302 001c done   store   R3,possum[R0]    ; possum = R3
+  57 0016 f302 001c <span class='FIELDLABEL'>done</span>   <span class='FIELDOPERATION'>store</span>   <span class='FIELDOPERAND'>R3,possum[R0]</span><span class='FIELDCOMMENT'>    ; possum = R3</span>
+  58 0018 f402 001d        store   R4,negcount[R0]  ; negcount = R4
+  58 0018 f402 001d        store   R4,negcount[R0]  ; negcount = R4
+  58 0018 f402 001d <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>store</span>   <span class='FIELDOPERAND'>R4,negcount[R0]</span><span class='FIELDCOMMENT'>  ; negcount = R4</span>
+  59 001a c000             trap    R0,R0,R0         ; terminate
+  59 001a c000             trap    R0,R0,R0         ; terminate
+  59 001a c000      <span class='FIELDLABEL'></span>       <span class='FIELDOPERATION'>trap</span>    <span class='FIELDOPERAND'>R0,R0,R0</span><span class='FIELDCOMMENT'>         ; terminate</span>
+  60 001b           
+  60 001b           
+  60 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  61 001b           ; With these data values, expected results are
+  61 001b           ; With these data values, expected results are
+  61 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; With these data values, expected results are</span>
+  62 001b           ;   possum   = 91 + 100 + 42 = 233 (00e9)
+  62 001b           ;   possum   = 91 + 100 + 42 = 233 (00e9)
+  62 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   possum   = 91 + 100 + 42 = 233 (00e9)</span>
+  63 001b           ;   negcount = 4 (0004)
+  63 001b           ;   negcount = 4 (0004)
+  63 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   negcount = 4 (0004)</span>
+  64 001b           
+  64 001b           
+  64 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  65 001b 0008      n        data  8
+  65 001b 0008      n        data  8
+  65 001b 0008      <span class='FIELDLABEL'>n</span>        <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>8</span><span class='FIELDCOMMENT'></span>
+  66 001c 0000      possum   data  0
+  66 001c 0000      possum   data  0
+  66 001c 0000      <span class='FIELDLABEL'>possum</span>   <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  67 001d 0000      negcount data  0
+  67 001d 0000      negcount data  0
+  67 001d 0000      <span class='FIELDLABEL'>negcount</span> <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  68 001e           
+  68 001e           
+  68 001e           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  69 001e fff3      x        data  -13
+  69 001e fff3      x        data  -13
+  69 001e fff3      <span class='FIELDLABEL'>x</span>        <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>-13</span><span class='FIELDCOMMENT'></span>
+  70 001f 005b               data   91
+  70 001f 005b               data   91
+  70 001f 005b      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>91</span><span class='FIELDCOMMENT'></span>
+  71 0020 fffc               data   -4
+  71 0020 fffc               data   -4
+  71 0020 fffc      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>-4</span><span class='FIELDCOMMENT'></span>
+  72 0021 0000               data    0
+  72 0021 0000               data    0
+  72 0021 0000      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>    <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  73 0022 ffff               data   -1
+  73 0022 ffff               data   -1
+  73 0022 ffff      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>-1</span><span class='FIELDCOMMENT'></span>
+  74 0023 0064               data  100
+  74 0023 0064               data  100
+  74 0023 0064      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>100</span><span class='FIELDCOMMENT'></span>
+  75 0024 002a               data   42
+  75 0024 002a               data   42
+  75 0024 002a      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>42</span><span class='FIELDCOMMENT'></span>
+  76 0025 ffe2               data  -30
+  76 0025 ffe2               data  -30
+  76 0025 ffe2      <span class='FIELDLABEL'></span>         <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>-30</span><span class='FIELDCOMMENT'></span>
+  77 0026           
+  77 0026           
+  77 0026           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+
+
+
+Symbol table
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Symbol table</span>
+Name        Val Org Mov  Def Used
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+done       0016 Loc Rel   57  38
+done       0016 Loc Rel   57  38
+done       0016 Loc Rel   57  38
+loop       0007 Loc Rel   36  54
+loop       0007 Loc Rel   36  54
+loop       0007 Loc Rel   36  54
+n          001b Loc Rel   65  28
+n          001b Loc Rel   65  28
+n          001b Loc Rel   65  28
+neg        0012 Loc Rel   50  43
+neg        0012 Loc Rel   50  43
+neg        0012 Loc Rel   50  43
+negcount   001d Loc Rel   67  58
+negcount   001d Loc Rel   67  58
+negcount   001d Loc Rel   67  58
+next       0013 Loc Rel   53  47
+next       0013 Loc Rel   53  47
+next       0013 Loc Rel   53  47
+possum     001c Loc Rel   66  57
+possum     001c Loc Rel   66  57
+possum     001c Loc Rel   66  57
+x          001e Loc Rel   69  41
+x          001e Loc Rel   69  41
+x          001e Loc Rel   69  41

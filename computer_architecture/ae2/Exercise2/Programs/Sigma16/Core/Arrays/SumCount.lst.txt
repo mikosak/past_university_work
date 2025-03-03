@@ -1,0 +1,89 @@
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; SumCount: traverse array and calculate two values
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   3 0000           
+   4 0000           ; Traverse array and calculate two values, possum and negcount
+   5 0000           
+   6 0000           ; The program is given
+   7 0000           ;  --  a natural number n
+   8 0000           ;  --  an n-element array x[0], x[1], ..., x[n-1]
+   9 0000           ;  It calculates
+  10 0000           ;  -- possum = the sum of the nonnegative elements of x
+  11 0000           ;  -- negcount = the number of negative elements of x
+  12 0000           
+  13 0000           ;   possum := 0
+  14 0000           ;   negcount := 0
+  15 0000           ;   for i := 0 to n-1 step 1
+  16 0000           ;       if x[i] >= 0
+  17 0000           ;         then possum := possum + x[i]
+  18 0000           ;         else negcount := negcount + 1
+  19 0000           
+  20 0000           ; Register usage
+  21 0000           ;   R1 = n
+  22 0000           ;   R2 = i
+  23 0000           ;   R3 = possum
+  24 0000           ;   R4 = negcount
+  25 0000           ;   R5 = constant 1
+  26 0000           
+  27 0000           ; Initialise
+  28 0000 f101 001b        load  R1,n[R0]          ; R1 = n
+  29 0002 0200             add   R2,R0,R0          ; i = 0
+  30 0003 0300             add   R3,R0,R0          ; possum = 0
+  31 0004 0400             add   R4,R0,R0          ; negcount = 0
+  32 0005 f500 0001        lea   R5,1[R0]          ; R5 = constant 1
+  33 0007           
+  34 0007           ; Top of loop, determine whether to remain in loop
+  35 0007           
+  36 0007           loop
+  37 0007 4021             cmp     R2,R1            ; compare i, n
+  38 0008 f404 0016        jumpge  done[R0]         ; if i >= n then goto done
+  39 000a           
+  40 000a           ; Find out whether x[i] is negative or nonnegative
+  41 000a f621 001e        load    R6,x[R2]         ; R6 = x[i]
+  42 000c 4060             cmp     R6,R0            ; compare x[i], 0
+  43 000d f405 0012        jumplt  neg[R0]          ; if x[i] &lt; 0 then goto neg
+  44 000f           
+  45 000f           ; We have x[i] >= 0
+  46 000f 0336             add     R3,R3,R6         ; possum = possum + x[i]
+  47 0010 f003 0013        jump    next[R0]         ; goto bottom of loop
+  48 0012           
+  49 0012           ; We have x[i] &lt; 0
+  50 0012 0445      neg    add     R4,R4,R5         ; negcount = negcount + 1
+  51 0013           
+  52 0013           ; Bottom of loop, increment loop index
+  53 0013 0225      next   add     R2,R2,R5         ; i = i + 1
+  54 0014 f003 0007        jump    loop[R0]         ; go to top of loop
+  55 0016           
+  56 0016           ; Exit from loop
+  57 0016 f302 001c done   store   R3,possum[R0]    ; possum = R3
+  58 0018 f402 001d        store   R4,negcount[R0]  ; negcount = R4
+  59 001a c000             trap    R0,R0,R0         ; terminate
+  60 001b           
+  61 001b           ; With these data values, expected results are
+  62 001b           ;   possum   = 91 + 100 + 42 = 233 (00e9)
+  63 001b           ;   negcount = 4 (0004)
+  64 001b           
+  65 001b 0008      n        data  8
+  66 001c 0000      possum   data  0
+  67 001d 0000      negcount data  0
+  68 001e           
+  69 001e fff3      x        data  -13
+  70 001f 005b               data   91
+  71 0020 fffc               data   -4
+  72 0021 0000               data    0
+  73 0022 ffff               data   -1
+  74 0023 0064               data  100
+  75 0024 002a               data   42
+  76 0025 ffe2               data  -30
+  77 0026           
+
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+done       0016 Loc Rel   57  38
+loop       0007 Loc Rel   36  54
+n          001b Loc Rel   65  28
+neg        0012 Loc Rel   50  43
+negcount   001d Loc Rel   67  58
+next       0013 Loc Rel   53  47
+possum     001c Loc Rel   66  57
+x          001e Loc Rel   69  41

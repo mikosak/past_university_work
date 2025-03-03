@@ -1,0 +1,314 @@
+0,19,1,19
+2,20,3,20
+4,21,5,21
+6,22,7,22
+8,25,9,25
+10,26,11,26
+12,27,13,27
+14,28,15,30
+16,34,17,35
+18,36,19,37
+20,38,21,40
+22,41,23,42
+24,43,25,44
+26,46,27,55
+28,55,29,56
+30,56,31,57
+32,57,33,58
+34,58,35,59
+36,59,37,61
+38,62,39,62
+40,63,41,63
+42,64,43,65
+44,65,45,66
+46,67,47,68
+48,69,49,69
+50,71,51,71
+52,72,53,72
+54,73,55,73
+56,74,57,74
+58,76,59,77
+60,78
+source
+Line Addr Code Code Source
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+<span class='ListingHeader'>Line Addr Code Code Source</span>
+   1 0000           ; WriteBCD: print a BCD number
+   1 0000           ; WriteBCD: print a BCD number
+   1 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; WriteBCD: print a BCD number</span>
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           ; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022
+   2 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Sigma16: https://jtod.github.io/home/Sigma16/  John O'Donnell, 2022</span>
+   3 0000           
+   3 0000           
+   3 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   4 0000           ; This program illustrates how to print a binary coded decimal (BCD)
+   4 0000           ; This program illustrates how to print a binary coded decimal (BCD)
+   4 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; This program illustrates how to print a binary coded decimal (BCD)</span>
+   5 0000           ; number, and how to write non-reentrant procedures with static local
+   5 0000           ; number, and how to write non-reentrant procedures with static local
+   5 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; number, and how to write non-reentrant procedures with static local</span>
+   6 0000           ; data.
+   6 0000           ; data.
+   6 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; data.</span>
+   7 0000           
+   7 0000           
+   7 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+   8 0000           ; The main program takes a BCD number 'decx' with 5 digits, converts
+   8 0000           ; The main program takes a BCD number 'decx' with 5 digits, converts
+   8 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; The main program takes a BCD number 'decx' with 5 digits, converts</span>
+   9 0000           ; that to a string 'str', and prints the string.  It uses several
+   9 0000           ; that to a string 'str', and prints the string.  It uses several
+   9 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; that to a string 'str', and prints the string.  It uses several</span>
+  10 0000           ; non-reentrant procedures, which are defined locally and use static
+  10 0000           ; non-reentrant procedures, which are defined locally and use static
+  10 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; non-reentrant procedures, which are defined locally and use static</span>
+  11 0000           ; local data:
+  11 0000           ; local data:
+  11 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; local data:</span>
+  12 0000           
+  12 0000           
+  12 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  13 0000           ;   DecString -- converts a BCD number to a string
+  13 0000           ;   DecString -- converts a BCD number to a string
+  13 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   DecString -- converts a BCD number to a string</span>
+  14 0000           ;   AddDec -- adds two BCD numbers
+  14 0000           ;   AddDec -- adds two BCD numbers
+  14 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   AddDec -- adds two BCD numbers</span>
+  15 0000           
+  15 0000           
+  15 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  16 0000           ;---------------------------------------------------------------------
+  16 0000           ;---------------------------------------------------------------------
+  16 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;---------------------------------------------------------------------</span>
+  17 0000           ; Main program
+  17 0000           ; Main program
+  17 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Main program</span>
+  18 0000           
+  18 0000           
+  18 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  19 0000           ; Convert BCD number to string
+  19 0000           ; Convert BCD number to string
+  19 0000           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Convert BCD number to string</span>
+  20 0000 f100 0005      lea    R1,5[R0]               ; arg 1 := #digits in decx
+  20 0000 f100 0005      lea    R1,5[R0]               ; arg 1 := #digits in decx
+  20 0000 f100 0005 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R1,5[R0]</span><span class='FIELDCOMMENT'>               ; arg 1 := #digits in decx</span>
+  21 0002 f200 0010      lea    R2,decx[R0]            ; arg 2 := &decx
+  21 0002 f200 0010      lea    R2,decx[R0]            ; arg 2 := &decx
+  21 0002 f200 0010 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R2,decx[R0]</span><span class='FIELDCOMMENT'>            ; arg 2 := &decx</span>
+  22 0004 f300 0015      lea    R3,str[R0]             ; arg 3 := &str
+  22 0004 f300 0015      lea    R3,str[R0]             ; arg 3 := &str
+  22 0004 f300 0015 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R3,str[R0]</span><span class='FIELDCOMMENT'>             ; arg 3 := &str</span>
+  23 0006 fd06 001b      jal    R13,DecString[R0]      ; call DecString
+  23 0006 fd06 001b      jal    R13,DecString[R0]      ; call DecString
+  23 0006 fd06 001b <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>jal</span>    <span class='FIELDOPERAND'>R13,DecString[R0]</span><span class='FIELDCOMMENT'>      ; call DecString</span>
+  24 0008           
+  24 0008           
+  24 0008           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  25 0008           ; Write str
+  25 0008           ; Write str
+  25 0008           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Write str</span>
+  26 0008 f100 0002      lea    R1,2[R0]               ; arg 1 := trap code write
+  26 0008 f100 0002      lea    R1,2[R0]               ; arg 1 := trap code write
+  26 0008 f100 0002 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R1,2[R0]</span><span class='FIELDCOMMENT'>               ; arg 1 := trap code write</span>
+  27 000a f200 0015      lea    R2,str[R0]             ; arg 2 := &str
+  27 000a f200 0015      lea    R2,str[R0]             ; arg 2 := &str
+  27 000a f200 0015 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R2,str[R0]</span><span class='FIELDCOMMENT'>             ; arg 2 := &str</span>
+  28 000c f300 0006      lea    R3,6[R0]               ; arg 3 := #chars (incl newline)
+  28 000c f300 0006      lea    R3,6[R0]               ; arg 3 := #chars (incl newline)
+  28 000c f300 0006 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>    <span class='FIELDOPERAND'>R3,6[R0]</span><span class='FIELDCOMMENT'>               ; arg 3 := #chars (incl newline)</span>
+  29 000e c123           trap   R1,R2,R3               ; write
+  29 000e c123           trap   R1,R2,R3               ; write
+  29 000e c123      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>trap</span>   <span class='FIELDOPERAND'>R1,R2,R3</span><span class='FIELDCOMMENT'>               ; write</span>
+  30 000f           
+  30 000f           
+  30 000f           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  31 000f c000           trap   R0,R0,R0               ; terminate
+  31 000f c000           trap   R0,R0,R0               ; terminate
+  31 000f c000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>trap</span>   <span class='FIELDOPERAND'>R0,R0,R0</span><span class='FIELDCOMMENT'>               ; terminate</span>
+  32 0010           
+  32 0010           
+  32 0010           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  33 0010           ; Data for main program
+  33 0010           ; Data for main program
+  33 0010           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Data for main program</span>
+  34 0010           decx                               ; BCD number 26,394
+  34 0010           decx                               ; BCD number 26,394
+  34 0010           <span class='FIELDLABEL'>decx</span>                               <span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; BCD number 26,394</span>
+  35 0010 0002           data   2
+  35 0010 0002           data   2
+  35 0010 0002      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>2</span><span class='FIELDCOMMENT'></span>
+  36 0011 0009           data   9
+  36 0011 0009           data   9
+  36 0011 0009      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>9</span><span class='FIELDCOMMENT'></span>
+  37 0012 0003           data   3
+  37 0012 0003           data   3
+  37 0012 0003      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>3</span><span class='FIELDCOMMENT'></span>
+  38 0013 0000           data   0
+  38 0013 0000           data   0
+  38 0013 0000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  39 0014 0004           data   4
+  39 0014 0004           data   4
+  39 0014 0004      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>4</span><span class='FIELDCOMMENT'></span>
+  40 0015           str                                ; an array of 5 words
+  40 0015           str                                ; an array of 5 words
+  40 0015           <span class='FIELDLABEL'>str</span>                                <span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; an array of 5 words</span>
+  41 0015 0000           data   0
+  41 0015 0000           data   0
+  41 0015 0000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  42 0016 0000           data   0
+  42 0016 0000           data   0
+  42 0016 0000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  43 0017 0000           data   0
+  43 0017 0000           data   0
+  43 0017 0000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  44 0018 0000           data   0
+  44 0018 0000           data   0
+  44 0018 0000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  45 0019 0000           data   0
+  45 0019 0000           data   0
+  45 0019 0000      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  46 001a           newline
+  46 001a           newline
+  46 001a           <span class='FIELDLABEL'>newline</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  47 001a 000a           data   10                     ; Unicode character code for newline
+  47 001a 000a           data   10                     ; Unicode character code for newline
+  47 001a 000a      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>data</span>   <span class='FIELDOPERAND'>10</span><span class='FIELDCOMMENT'>                     ; Unicode character code for newline</span>
+  48 001b           
+  48 001b           
+  48 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  49 001b           ;------------------------------------------------------------------------
+  49 001b           ;------------------------------------------------------------------------
+  49 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;------------------------------------------------------------------------</span>
+  50 001b           ; Procedure DecString -- convert a BCD integer to string
+  50 001b           ; Procedure DecString -- convert a BCD integer to string
+  50 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Procedure DecString -- convert a BCD integer to string</span>
+  51 001b           ; Calling conventions
+  51 001b           ; Calling conventions
+  51 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Calling conventions</span>
+  52 001b           ;   R1 = k = number of words (digits) in BCD integer x
+  52 001b           ;   R1 = k = number of words (digits) in BCD integer x
+  52 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R1 = k = number of words (digits) in BCD integer x</span>
+  53 001b           ;   R2 = xp = pointer to msb of x
+  53 001b           ;   R2 = xp = pointer to msb of x
+  53 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R2 = xp = pointer to msb of x</span>
+  54 001b           ;   R3 = sp = pointer to string s
+  54 001b           ;   R3 = sp = pointer to string s
+  54 001b           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>;   R3 = sp = pointer to string s</span>
+  55 001b           DecString
+  55 001b           DecString
+  55 001b           <span class='FIELDLABEL'>DecString</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  56 001b f402 003a      store   R4,DecStringR4[R0]    ; save R4
+  56 001b f402 003a      store   R4,DecStringR4[R0]    ; save R4
+  56 001b f402 003a <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>store</span>   <span class='FIELDOPERAND'>R4,DecStringR4[R0]</span><span class='FIELDCOMMENT'>    ; save R4</span>
+  57 001d f502 003b      store   R5,DecStringR5[R0]    ; save R5
+  57 001d f502 003b      store   R5,DecStringR5[R0]    ; save R5
+  57 001d f502 003b <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>store</span>   <span class='FIELDOPERAND'>R5,DecStringR5[R0]</span><span class='FIELDCOMMENT'>    ; save R5</span>
+  58 001f f602 003c      store   R6,DecStringR6[R0]    ; save R6
+  58 001f f602 003c      store   R6,DecStringR6[R0]    ; save R6
+  58 001f f602 003c <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>store</span>   <span class='FIELDOPERAND'>R6,DecStringR6[R0]</span><span class='FIELDCOMMENT'>    ; save R6</span>
+  59 0021 f400 0001      lea     R4,1[R0]              ; R4 := constant 1
+  59 0021 f400 0001      lea     R4,1[R0]              ; R4 := constant 1
+  59 0021 f400 0001 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>     <span class='FIELDOPERAND'>R4,1[R0]</span><span class='FIELDCOMMENT'>              ; R4 := constant 1</span>
+  60 0023 f500 0030      lea     R5,$0030[R0]          ; R5 := constant unicode '0'
+  60 0023 f500 0030      lea     R5,$0030[R0]          ; R5 := constant unicode '0'
+  60 0023 f500 0030 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>lea</span>     <span class='FIELDOPERAND'>R5,$0030[R0]</span><span class='FIELDCOMMENT'>          ; R5 := constant unicode '0'</span>
+  61 0025           DecStringLoop
+  61 0025           DecStringLoop
+  61 0025           <span class='FIELDLABEL'>DecStringLoop</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  62 0025 4010           cmp     R1,R0                 ; compare k, 0
+  62 0025 4010           cmp     R1,R0                 ; compare k, 0
+  62 0025 4010      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>cmp</span>     <span class='FIELDOPERAND'>R1,R0</span><span class='FIELDCOMMENT'>                 ; compare k, 0</span>
+  63 0026 f004 0032      jumple  DecStringDone[R0]     ; if k &lt;= 0 then exit loop
+  63 0026 f004 0032      jumple  DecStringDone[R0]     ; if k &lt;= 0 then exit loop
+  63 0026 f004 0032 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>jumple</span>  <span class='FIELDOPERAND'>DecStringDone[R0]</span><span class='FIELDCOMMENT'>     ; if k &lt;= 0 then exit loop</span>
+  64 0028 f621 0000      load    R6,0[R2]              ; R6 := x[i]
+  64 0028 f621 0000      load    R6,0[R2]              ; R6 := x[i]
+  64 0028 f621 0000 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>load</span>    <span class='FIELDOPERAND'>R6,0[R2]</span><span class='FIELDCOMMENT'>              ; R6 := x[i]</span>
+  65 002a 0665           add     R6,R6,R5              ; R6 := unicode char for x[i]
+  65 002a 0665           add     R6,R6,R5              ; R6 := unicode char for x[i]
+  65 002a 0665      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>add</span>     <span class='FIELDOPERAND'>R6,R6,R5</span><span class='FIELDCOMMENT'>              ; R6 := unicode char for x[i]</span>
+  66 002b f632 0000      store   R6,0[R3]              ; s[i] := unicode char for x[i]
+  66 002b f632 0000      store   R6,0[R3]              ; s[i] := unicode char for x[i]
+  66 002b f632 0000 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>store</span>   <span class='FIELDOPERAND'>R6,0[R3]</span><span class='FIELDCOMMENT'>              ; s[i] := unicode char for x[i]</span>
+  67 002d 0224           add     R2,R2,R4              ; xp++
+  67 002d 0224           add     R2,R2,R4              ; xp++
+  67 002d 0224      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>add</span>     <span class='FIELDOPERAND'>R2,R2,R4</span><span class='FIELDCOMMENT'>              ; xp++</span>
+  68 002e 0334           add     R3,R3,R4              ; sp++
+  68 002e 0334           add     R3,R3,R4              ; sp++
+  68 002e 0334      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>add</span>     <span class='FIELDOPERAND'>R3,R3,R4</span><span class='FIELDCOMMENT'>              ; sp++</span>
+  69 002f 1114           sub     R1,R1,R4              ; k--
+  69 002f 1114           sub     R1,R1,R4              ; k--
+  69 002f 1114      <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>sub</span>     <span class='FIELDOPERAND'>R1,R1,R4</span><span class='FIELDCOMMENT'>              ; k--</span>
+  70 0030 f003 0025      jump    DecStringLoop[R0]     ; goto DecStringLoop
+  70 0030 f003 0025      jump    DecStringLoop[R0]     ; goto DecStringLoop
+  70 0030 f003 0025 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>jump</span>    <span class='FIELDOPERAND'>DecStringLoop[R0]</span><span class='FIELDCOMMENT'>     ; goto DecStringLoop</span>
+  71 0032           DecStringDone
+  71 0032           DecStringDone
+  71 0032           <span class='FIELDLABEL'>DecStringDone</span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+  72 0032 f401 003a      load    R4,DecStringR4[R0]    ; restore R4
+  72 0032 f401 003a      load    R4,DecStringR4[R0]    ; restore R4
+  72 0032 f401 003a <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>load</span>    <span class='FIELDOPERAND'>R4,DecStringR4[R0]</span><span class='FIELDCOMMENT'>    ; restore R4</span>
+  73 0034 f501 003b      load    R5,DecStringR5[R0]    ; restore R5
+  73 0034 f501 003b      load    R5,DecStringR5[R0]    ; restore R5
+  73 0034 f501 003b <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>load</span>    <span class='FIELDOPERAND'>R5,DecStringR5[R0]</span><span class='FIELDCOMMENT'>    ; restore R5</span>
+  74 0036 f601 003c      load    R6,DecStringR6[R0]    ; restore R6
+  74 0036 f601 003c      load    R6,DecStringR6[R0]    ; restore R6
+  74 0036 f601 003c <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>load</span>    <span class='FIELDOPERAND'>R6,DecStringR6[R0]</span><span class='FIELDCOMMENT'>    ; restore R6</span>
+  75 0038 f0d3 0000      jump    0[R13]                ; return
+  75 0038 f0d3 0000      jump    0[R13]                ; return
+  75 0038 f0d3 0000 <span class='FIELDLABEL'></span>     <span class='FIELDOPERATION'>jump</span>    <span class='FIELDOPERAND'>0[R13]</span><span class='FIELDCOMMENT'>                ; return</span>
+  76 003a           ; Data for DecString -- static allocation
+  76 003a           ; Data for DecString -- static allocation
+  76 003a           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; Data for DecString -- static allocation</span>
+  77 003a 0000      DecStringR4  data  0
+  77 003a 0000      DecStringR4  data  0
+  77 003a 0000      <span class='FIELDLABEL'>DecStringR4</span>  <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  78 003b 0000      DecStringR5  data  0
+  78 003b 0000      DecStringR5  data  0
+  78 003b 0000      <span class='FIELDLABEL'>DecStringR5</span>  <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  79 003c 0000      DecStringR6  data  0
+  79 003c 0000      DecStringR6  data  0
+  79 003c 0000      <span class='FIELDLABEL'>DecStringR6</span>  <span class='FIELDOPERATION'>data</span>  <span class='FIELDOPERAND'>0</span><span class='FIELDCOMMENT'></span>
+  80 003d           ; End Procedure DecString
+  80 003d           ; End Procedure DecString
+  80 003d           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'>; End Procedure DecString</span>
+  81 003d           
+  81 003d           
+  81 003d           <span class='FIELDLABEL'></span><span class='FIELDOPERATION'></span><span class='FIELDOPERAND'></span><span class='FIELDCOMMENT'></span>
+
+
+
+Symbol table
+<span class='ListingHeader'>Symbol table</span>
+<span class='ListingHeader'>Symbol table</span>
+Name        Val Org Mov  Def Used
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+<span class='ListingHeader'>Name        Val Org Mov  Def Used</span>
+DecString  001b Loc Rel   55  23
+DecString  001b Loc Rel   55  23
+DecString  001b Loc Rel   55  23
+DecStringDone0032 Loc Rel   71  63
+DecStringDone0032 Loc Rel   71  63
+DecStringDone0032 Loc Rel   71  63
+DecStringLoop0025 Loc Rel   61  70
+DecStringLoop0025 Loc Rel   61  70
+DecStringLoop0025 Loc Rel   61  70
+DecStringR4003a Loc Rel   77  56,72
+DecStringR4003a Loc Rel   77  56,72
+DecStringR4003a Loc Rel   77  56,72
+DecStringR5003b Loc Rel   78  57,73
+DecStringR5003b Loc Rel   78  57,73
+DecStringR5003b Loc Rel   78  57,73
+DecStringR6003c Loc Rel   79  58,74
+DecStringR6003c Loc Rel   79  58,74
+DecStringR6003c Loc Rel   79  58,74
+decx       0010 Loc Rel   34  21
+decx       0010 Loc Rel   34  21
+decx       0010 Loc Rel   34  21
+newline    001a Loc Rel   46  
+newline    001a Loc Rel   46  
+newline    001a Loc Rel   46  
+str        0015 Loc Rel   40  22,27
+str        0015 Loc Rel   40  22,27
+str        0015 Loc Rel   40  22,27
