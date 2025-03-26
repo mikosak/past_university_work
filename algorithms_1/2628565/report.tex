@@ -1,0 +1,84 @@
+\documentclass[]{article}
+            
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,graphicx}
+ 
+\title{Algorithmics I -- Assessed Exercise\\ \vspace{4mm} 
+Status and Implementation Reports}
+
+\author{\bf Miko Osak\\ \bf 2628565o}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Status report}
+
+I believe the programs I have written to work correctly. They compile without issue and when viewing their data structures, they look correct. The compression ratio and time to run them looks reasonable too. This applies to all 3 test files given. 
+
+\section*{Implementation report}
+
+\subsection*{Compression ration for the Huffman algorithm}
+
+My implementation counts the unique occurrences of characters in the text given, and produces a list of nodes (which will be the leaf nodes in the tree) for each of these characters, with their number of occurrences stored as the weight in the node. This list is kept in sorted order, so that we start off processing the nodes with the least occurrences. I then produce a new node using the weights of the first two nodes in the list, make those two nodes the children of the new node, and insert (in order) the new node into the list. When there is only one node left, that node is the root of the tree that was made.
+
+Originally, my implementation for the sorted list used an array list as the table which stored the nodes to insert into the tree, and then sorted it. However, this was too slow, as the process of adding nodes whilst maintaining order could take O(n) time in the worst case. I discovered that Java's priority queues would be appropriate in this situation, as they maintain order and inserting takes O(logn) in the worst case.
+
+Other than that, I used a depth first traversal in my calculation of the compressed length. This is efficient as it goes straight to the leaf nodes that are required in the calculation.
+
+\subsection*{Compression ration for the LZW algorithm}
+
+Here, explain how you implemented an approach to compute the compression ration for the LZW algorithm. Include a discussion of any steps that you took to improve efficiency.
+
+Here I modified the Trie from the lab to accept so that insert and search would accept codes. I also implemented a code length limit as required, which starts at 8. The root node has children for each value representable with the current code length, when initialised inside the LZW class. I search for whether the substring I find is in the dictionary, and based off that, I decide whether it needs to be added or if it is already in the dictionary and I can its code to the compressed text. This loops until the end of the text.  
+
+Originally, I used strings to handle most of the process, however they are immutable. This means that adding to them requires the whole string to be remade. This is costly, so I replaced most of the bigger strings with string builders which are mutable.
+
+\section*{Empirical results}
+
+\begin{verbatim}
+Input file small.txt Huffman algorithm
+
+Original file length in bits = 46392
+Compressed file length in bits = 25795
+Compression ratio = 0.5560226
+Elapsed time: 69 milliseconds
+
+Input file medium.txt Huffman algorithm
+
+Original file length in bits = 7096792
+Compressed file length in bits = 3906463
+Compression ratio = 0.5504548
+Elapsed time: 182 milliseconds
+
+Input file large.txt Huffman algorithm
+
+Original file length in bits = 25632616
+Compressed file length in bits = 13998727
+Compression ratio = 0.54612947
+Elapsed time: 307 milliseconds
+
+Input file small.txt LZW algorithm
+
+Original file length in bits = 46392
+Compressed file length in bits = 19776
+Compression ratio = 0.42628038
+Elapsed time: 134 milliseconds
+
+Input file medium.txt LZW algorithm
+
+Original file length in bits = 7096792
+Compressed file length in bits = 1269136
+Compression ratio = 0.17883235
+Elapsed time: 4799 milliseconds
+
+Input file large.txt LZW algorithm
+
+Original file length in bits = 25632616
+Compressed file length in bits = 4027656
+Compression ratio = 0.15713012
+Elapsed time: 7659 milliseconds
+\end{verbatim}
+
+\end{document}
