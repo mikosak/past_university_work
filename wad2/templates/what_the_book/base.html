@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+      {% block title_block %}
+      What The Book?
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'main_stylesheet.css' %}" />
+
+</head>
+
+<body>
+   <header> <img src = "{% static 'bookLogoNoBg.png' %}"
+                  alt = "hallo" width = "60" height ="60" class = "logoPlacement">
+        <h1>What The Book</h1> <!-- will be styled by header in css file -->
+    </header>
+
+   <div  class = "navBar"><!-- need to link to horizontal navbar class -->
+    <ul>
+      <li><a href ="{% url 'what_the_book:home' %}">Home</a></li>
+      {% if user.is_authenticated %}
+      <li><a href ="{% url 'what_the_book:request_book' %}">Request A new book</a></li>
+      <li><a href ="{% url 'what_the_book:account' %}">View account</a></li>
+      <li><a href ="{% url 'what_the_book:logout' %}">Logout</a></li>
+      {% else %}
+      <li><a href ="{% url 'what_the_book:register' %}">Register for an account</a></li>
+      <li><a href ="{% url 'what_the_book:login' %}">Login</a></li>
+      {% endif %}
+      <li><a href ="{% url 'what_the_book:contactus' %}">Contact Us</a></li>
+    </ul>
+
+</div>
+<div>
+  {% block body_block %}
+  {% endblock %}
+</div>
+
+<br />
+
+
+
+
+</body>
+</html>

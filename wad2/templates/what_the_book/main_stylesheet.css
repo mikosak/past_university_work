@@ -1,0 +1,16 @@
+head{
+    padding:5px;
+    border:solid;
+    test-align:center;
+   }
+
+body {
+background-color: #fff5cc;
+border:solid;}
+
+.navBar{
+        list-display-type: none;
+        float:left;
+        display:inline;
+        border:solid;
+}

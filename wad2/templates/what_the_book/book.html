@@ -1,0 +1,53 @@
+{% extends 'what_the_book/base.html' %}
+
+<!-- DONE -->
+
+<html>
+    {% block title_block %}
+            {% if book %}
+            {{ book.title }}
+            {% else %}
+            Book
+            {% endif %}
+    {% endblock %}
+
+    {% block body_block %}
+        <div class = "book-review">
+            <div class = "reviewLeft">
+            {% if book %}
+            <h1>{{ book.title }}</h1>
+            <p>Author: {{ book.author }}</p>
+            {% if book.coverPicture %}
+                <img src="{{ book.coverPicture.url }}" alt="{{ book.title }} cover picture" width = "150" height = "180">
+            {% else %}
+                <p>No cover picture available.</p>
+            {% endif %}
+        </div>
+
+        <div class="reviewRight">
+            <h2>Reviews:</h2>
+            {% for review in reviews %}
+                <div class = "reviews">
+                    <h3>{{ review.title }}</h3>
+                    <p>By {{ review.createdBy }}</p>
+                    <p>{{ review.mainText }}</p>
+                    <strong>Likes: {{ review.likes }}</strong>
+
+                </div>
+            {% empty %}
+                <p>No reviews yet.</p>
+            {% endfor %}
+        </div>
+        {% else %}
+            <p>Book not found.</p>
+        {% endif %}
+                {% if user.is_authenticated %}
+                <a href="{% url 'what_the_book:make_review' book.slug %}"> Review Book</a><br />
+                {% endif %}
+        
+        </div>
+
+    {% endblock %}
+
+
+

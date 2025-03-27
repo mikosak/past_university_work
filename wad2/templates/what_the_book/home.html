@@ -1,0 +1,52 @@
+{% extends 'what_the_book/base.html' %}
+
+{% load staticfiles %}
+<!-- DONE -->
+        
+        <link rel = "stylesheet" href = "{% static 'main_stylesheet.css' %}">
+
+        <div> <!-- add in horizontal navbar calls -->
+            <a href="/home/contactus/"> Contact us</a><br />
+            <a href="/what_the_book/request_book/"> Request a new book</a><br />
+        </div>
+    {% block body_block %}
+
+                <div class = "verticalNav">
+        {% if books %}
+            <ul>
+                <label>Available Books:</label>
+                {% for book in books %}
+                <li><a href="{% url 'show_book' book.title|slugify %}">{{ book.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p> No books found. </p>
+        {% endif %}
+        </div>
+
+        <div class="filler"></div>
+
+        <div class = "rightSectionImg">
+            <h1> Welcome! </h1>
+                    <img src = "{% static 'libPhoto.jfif' %}"
+                         alt = "Library Photo" width = "600" height = "400" ><br/>
+            <br />
+
+            <p>
+
+                <!-- will be properly organised by the css once fixed -->
+                Welcome to What The Book, the site where you can talk about your
+                favourite (or least favourite) books with hundreds of other
+                enthusiasts! <br /><strong>We hope you enjoy your visit!</strong></p>
+        </div>
+
+
+
+
+
+        <br />
+        <br />
+
+
+{% endblock %}
+

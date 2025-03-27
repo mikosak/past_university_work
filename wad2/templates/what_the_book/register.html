@@ -1,0 +1,26 @@
+{% extends 'what_the_book/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Register
+{% endblock title_block %}
+<!-- nothing to change, just need css sheet to work -->
+
+{% block body_block %}
+    <h1> Register for What the Book! </h1>
+
+    {% if registered %}
+        Registration successful! <br>
+        <a href = "{% url 'what_the_book:home' %}">Return to Homepage.</a><br>
+
+    {% else %}
+        Registration form:
+        <form id="user_form" method="post" action="{% url 'what_the_book:register' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{user_picture_form.as_p}}
+            <input type="submit" name="submit" value="Register">
+        </form>
+
+    {% endif %}
+{% endblock body_block %}

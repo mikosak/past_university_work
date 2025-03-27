@@ -1,0 +1,199 @@
+header{
+    border: solid;
+    background-color: #00004d;
+    color:white;
+    text-align: center;
+    position: relative;
+   }
+
+
+body {
+background-color: #e6eeff;
+width: 90%;
+margin: 10px auto;
+padding: 10px;
+}
+
+
+p, label{
+  color: #00004d;
+}
+
+
+label{
+    font-size: 25px;
+}
+
+
+li a:hover{
+  background-color: #e6eeff;
+  color: #00004d;
+}
+
+
+.logoPlacement{
+    float:left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.navBar ul{
+    list-style-type: none;
+    border: solid;
+    background-color: #00004d;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+.navBar li{
+  display:inline-block;
+}
+
+.navBar a{
+  border: solid;
+  border-color: white;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  color: white;
+}
+
+
+
+.verticalNav{
+    float:left;
+}
+
+.verticalNav ul{
+  border: solid;
+  border-color: #00004d;
+  list-style-type: none;
+  width: 20%;
+  margin:2px;
+  padding:2px;
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+}
+
+.verticalNav li a {
+  display: inline-block;
+  margin: 5px;
+  margin-right: 20px;
+  font-size:20px;
+  color: #00004d;
+}
+
+
+.filler{
+}
+
+
+.rightSectionImg{
+  float: right;
+  margin: 10px;
+  width: 70%;
+  overflow: hidden;
+  text-align: bottom;
+  justify-content: center;
+}
+
+.rightSectionImg p{
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  margin-top:10px;
+}
+
+
+.reviewLeft{
+    float:left;
+    width: 50%;
+}
+
+.reviewRight{
+    float:right;
+    width:50%;
+}
+
+.book-review{
+    display: inline-block;
+    width: 100%;
+}
+
+.book-review img {
+  flex-shrink: 0;
+
+}
+
+ .book-review .reviews {
+  list-style: none;
+  padding: 10px;
+  border: solid;
+  display: inline-block;
+  overflow:hidden;
+}
+
+
+.contactInfo{
+    left:0;
+    width: 30%;
+    float:left;
+    height:60%;
+}
+
+.formPlacement{
+    float: right;
+    position: absolute;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    margin: 20px;
+}
+
+@media screen and (max-width: 500px){
+  .navBar a{
+    float:none;
+    display: block;
+  }
+   .verticalNav{
+   display: block;
+   width: 100%;
+   position: absolute;
+   height: auto;
+}
+
+   .rightSectionImg{
+   float:left;
+   display: block;
+   width: 100%;
+   position:relative;
+
+  }
+
+  .formPlacement{
+    display:block;
+    float:left;
+    position: relative;
+  }
+
+  .contactInfo{
+  display:block;
+  float: left;}
+
+  .filler{
+    height: 300px;
+  }
+
+
+}
+

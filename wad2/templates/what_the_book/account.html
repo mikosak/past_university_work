@@ -1,0 +1,18 @@
+{% extends 'what_the_book/base.html' %}
+{% load static %}
+
+Username: {{ user.username }}
+{% if user.profilePicture %}
+Profile Picture: <img src="{{ user.profilePicture.url }}"/>
+{% endif %}
+
+{% for review in reviews %}
+<div class = "reviews">
+    <h3>{{ review.title }}</h3>
+    <p>By {{ review.createdBy }}</p>
+    <p>{{ review.mainText }}</p>
+    <p>Likes: {{ review.likes }}</p>
+</div>
+{% empty %}
+<p>No reviews yet.</p>
+{% endfor %}

@@ -1,0 +1,45 @@
+{% extends 'what_the_book/base.html' %}
+{% load static %}
+
+<!-- just need to connect css -->
+
+{% block title_block %}
+Contact us
+{% endblock %}
+
+<div id = "navBar">
+    <!-- <img src="{{ MEDIA_URL }}macbeth.jpg" alt="Macbeth book cover."/> -->
+    <a href="/home/" class = "navElements"> Home</a><br />
+</div>
+
+
+    {% block body_block %}
+        <div class = "contactInfo">
+            <h1> CONTACT US</h1>
+            If you are requesting a new book for the site, please include the title and
+            author's name.<br />
+            <br />
+            If you are reporting an account, please include the username and the reason for reporting them.<br />
+            <br />
+            Information about how long it may take to reply to enquiries/new books to be uploaded<br />
+        </div>
+
+        <div class = "formPlacement">
+            <form>
+                <label>Username</label><br />
+                <input type = "text" size = 20><br />
+                <br />
+
+                <label>Please enter your message below</label><br />
+                <input type = "text" size = 50 cols = 20><br />
+                <br />
+
+                <input type = "submit" value = "Submit">
+            </form>
+        </div>
+
+
+
+
+    {% endblock %}
+
